@@ -5,7 +5,7 @@ var controller = require('../controllers/authuser')
 
 /* GET users listing. */
 router.get('/profile', function(req, res, next) {
-  res.render('profilepage.hbs');
+  res.render('profile.hbs');
 });
 
 router.post('/share_post',controller.share_post)

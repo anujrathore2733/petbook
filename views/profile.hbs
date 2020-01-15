@@ -9,179 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./style.css">
-    <style>
-        body {
-            margin-top: 20px;
-            background: #eee;
-        }
-
-        .profile-widget {
-            position: relative;
-        }
-
-        .profile-widget .image-container {
-            background-size: cover;
-            background-position: center;
-            padding: 190px 0 10px;
-        }
-
-        .profile-widget .image-container .profile-background {
-            width: 100%;
-            height: auto;
-        }
-
-        .profile-widget .image-container .avatar {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            margin: 0 auto -60px;
-            display: block;
-        }
-
-        .profile-widget .details {
-            padding: 50px 15px 15px;
-            text-align: center;
-        }
-
-        /* Component: Mini Profile Widget */
-        .image-container .avatar {
-            width: 180px;
-            height: 180px;
-            display: block;
-            margin: 0 auto;
-            border-radius: 50%;
-            background: white;
-            padding: 4px;
-            border: 1px solid #dddddd;
-        }
-
-        .mini-profile-widget .details {
-            text-align: center;
-        }
-
-        /* Component: Panel */
-        .panel {
-            border-radius: 0;
-            margin-bottom: 30px;
-        }
-
-        .panel.solid-color {
-            color: white;
-        }
-
-        .panel .panel-heading {
-            border-radius: 0;
-            position: relative;
-        }
-
-        .panel .panel-heading>.controls {
-            position: absolute;
-            right: 10px;
-            top: 12px;
-        }
-
-        .panel .panel-heading>.controls .nav.nav-pills {
-            margin: -8px 0 0 0;
-        }
-
-        .panel .panel-heading>.controls .nav.nav-pills li a {
-            padding: 5px 8px;
-        }
-
-        .panel .panel-heading .clickable {
-            margin-top: 0px;
-            font-size: 12px;
-            cursor: pointer;
-        }
-
-        .panel .panel-heading.no-heading-border {
-            border-bottom-color: transparent;
-        }
-
-        .panel .panel-heading .left {
-            float: left;
-        }
-
-        .panel .panel-heading .right {
-            float: right;
-        }
-
-        .panel .panel-title {
-            font-size: 16px;
-            line-height: 20px;
-        }
-
-        .panel .panel-title.panel-title-sm {
-            font-size: 18px;
-            line-height: 28px;
-        }
-
-        .panel .panel-title.panel-title-lg {
-            font-size: 24px;
-            line-height: 34px;
-        }
-
-        .panel .panel-body {
-            font-size: 13px;
-        }
-
-        .panel .panel-body>.body-section {
-            margin: 0px 0px 20px;
-        }
-
-        .panel .panel-body>.body-section>.section-heading {
-            margin: 0px 0px 5px;
-            font-weight: bold;
-        }
-
-        .panel .panel-body>.body-section>.section-content {
-            margin: 0px 0px 10px;
-        }
-
-        .panel-white {
-            border: 1px solid #dddddd;
-        }
-
-        .panel-white>.panel-heading {
-            color: #333;
-            background-color: #fff;
-            border-color: #ddd;
-        }
-
-        .panel-white>.panel-footer {
-            background-color: #fff;
-            border-color: #ddd;
-        }
-
-        .bg2 {
-            background-image: url('https://images.unsplash.com/photo-1499789853431-fcbf274f57b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
-        }
-
-        .btn-blue {
-            background-color: #3498db;
-            border-color: #3498db;
-            color: white;
-        }
-
-        .btn-blue:hover,
-        .btn-blue:visited {
-            background-color: #2980b9;
-            color: white;
-        }
-
-        .btn-green {
-            background-color: #2ecc71;
-            border-color: #27ae60;
-            color: white;
-        }
-
-        .btn-green:hover,
-        .btn-green:visited {
-            background-color: #27ae60;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/profilepage.css">
 
 </head>
 
@@ -203,25 +32,97 @@
                         <div class="col-sm-12">
                             <div class="details">
                                 <h4> Bosco <i class="fa fa-sheild"></i></h4>
-                                <div>Works at Petbook</div>
-                                <div> German Sherpherd</div>
-                                <div> Bruno Bhau</div>
+                                <div>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
                                 <div class="mg-top-10">
-                                    <a href="#" class="btn btn-blue">Followers</a>
-                                    <a href="#" class="btn btn-green">Following</a>
+                                    <button class="btn btn-blue btn-sm">Followers<span class="badge ml-2"
+                                            id="followers_count">0</span></button>
+                                    <button class="btn btn-green btn-sm">Following<span class="badge ml-2"
+                                            id="following_count">0</span></button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="col-md-2">
+                <div class="card">
+                    <h5 class="card-header text-center details1">Species</h5>
+                    <div class="card-body">
+                        <h6 class="text-center"><b>Animal/bird</b></h6>
+                        <hr>
+                        <h6 class="text-center"><b>Breed</b></h6>
+                        <p></p>
+                        <hr>
+                        <h6 class="text-center"><b>Origin</b></h6>
+                        <p></p>
+                        <hr>
+                        <h6 class="text-center"><b>Life Span</b></h6>
+                        <p></p>
+                        <hr>
+                        <h6 class="text-center"><b>Temperament</b></h6>
+                        <p></p>
+                        <hr>
+                        <h6 class="text-center"><b>Wikipedia</b></h6>
+                        <p></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <h5 class="card-header">Featured</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <h5 class="card-header text-center details1">Health</h5>
+                    <div class="card-body">
+                        <h6 class="text-center"><b>Age</b></h6>
+                        <hr>
+                        <h6 class="text-center"><b>Height</b></h6>
+                        <p></p>
+                        <hr>
+                        <h6 class="text-center"><b>Weight</b></h6>
+                        <p></p>
+                        <hr>
+                        <h6 class="text-center"><b>Skin Condition</b></h6>
+                        <p></p>
+                        <hr>
+                        <h6 class="text-center"><b>Average diet</b></h6>
+                        <p></p>
+                        <hr>
+                        <h6 class="text-center"><b>Food</b></h6>
+                        <p></p>
 
 
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 
-<script src='./main.js'></script>
+
 
 </html>
