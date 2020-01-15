@@ -47,12 +47,14 @@
                             <div class="form-label-group" id="pet_name" style="display: none;">
                                 <input type="text" name="pet_name" id="inputUserame" class="form-control"
                                     placeholder="Your pet's name">
+                                    <small id="petname_small"></small>
                                 <label for="inputUserame">Your pet's name</label>
                             </div>
 
                             <div class="form-label-group">
                                 <input type="email" name="email" id="inputEmail" class="form-control"
                                     placeholder="Email address" required>
+                                    <small id="email_small"></small>
                                 <label for="inputEmail">Email address</label>
                             </div>
 
@@ -67,11 +69,12 @@
                             <div class="form-label-group">
                                 <input type="password" id="inputConfirmPassword" class="form-control"
                                     placeholder="Password" required>
+                                    <small id="pass_small"></small>
                                 <label for="inputConfirmPassword">Confirm password</label>
                             </div>
 
                             <button class="btn btn-lg btn-primary btn-block text-uppercase"
-                                type="submit">Register</button>
+                                type="submit" id="signup_button">Register</button>
                             <a class="d-block text-center mt-2 small" href="/login"> Login </a>
                             <hr class="my-4">
                             <button class="btn btn-lg btn-google btn-block text-uppercase" type="button"><i
