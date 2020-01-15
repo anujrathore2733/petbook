@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static('public'));
 
+
 app.use('/', indexRouter);
 app.use('/Authusers', AuthusersRouter);
 
