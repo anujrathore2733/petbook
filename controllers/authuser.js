@@ -2,6 +2,7 @@ var multiparty = require('multiparty')
 var express = require('express')
 var cloudinary = require('cloudinary').v2
 var modals = require('../modals/schemas')
+var mongoose = require('mongoose')
 
 
 cloudinary.config({
@@ -41,6 +42,21 @@ auth_controller.share_post = function (req,res, next) {
 
         })
 
+    })
+
+}
+
+auth_controller.load_profilepage = function(req,res,next){
+    var user_id = mongoose.Types.ObjectId(req.session.user)
+     
+
+    modals.user_profile.findOne({user_id:user_id},function(err,result){
+        if(err){
+            console.log(err)
+        }
+        else{
+            res.render('profile.hbs',{followers_count:result.followers.length,followings_count:result.followings.length})
+        }
     })
 
 }

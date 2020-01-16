@@ -13,9 +13,7 @@ router.use(function(req,res,next){
     res.redirect('/login')
   }
 })
-router.get('/profile', function(req, res, next) {
-  res.render('profile.hbs');
-});
+router.get('/profile',controller.load_profilepage);
 
 router.post('/share_post',controller.share_post)
 

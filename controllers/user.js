@@ -51,7 +51,7 @@ user_controller.login = function(req,res,next){
             console.log(err)
         }
         else{
-            console.log(result)
+            
             if(result== null){
                 res.redirect('/login?user_not_found=true')
             }
