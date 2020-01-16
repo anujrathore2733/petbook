@@ -31,11 +31,13 @@ $(document).ready(function () {
         var email = $('#inputEmail').val()
         var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
         if(!pattern.test(email)){
-            $('#email_small').attr('class','text-danger')
-            $('#email_small').text('Enter valid email')
+            $('#email_label').attr('class','text-danger')
+            $('#email_label').text('Enter valid email')
+            $('#inputEmail').css('border','2px solid green')
             emailvalid = false
         }
         else{
+            $('#inputEmail').css('border','2px solid red')
             emailvalid = true
         }
         
