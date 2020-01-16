@@ -55,7 +55,8 @@ auth_controller.load_profilepage = function(req,res,next){
             console.log(err)
         }
         else{
-            res.render('profile.hbs',{followers_count:result.followers.length,followings_count:result.followings.length})
+            console.log(result)
+            res.render('profile.hbs',{user_data:result})
         }
     })
 

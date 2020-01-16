@@ -27,7 +27,7 @@ user_controller.signup = function (req,res, next) {
         }
         else{
             console.log(user)
-            var user_profile = new modals.user_profile({user_id:user._id})
+            var user_profile = new modals.user_profile({user_id:user._id,pet_name:user.pet_name,pet_species:{species:'no data',breed:'no data',origin:'no data',life_span:'no data'},pet_health:{height:0000,weight:0000,age:0000,skin:'no data'}})
             user_profile.save(function(err,user_profile){
                 if(err){
                     console.log(err)

@@ -20,20 +20,18 @@ var user_profileSchema = new mongoose.Schema({
     followers: [{ user: String, date: Date }],
     followings: [{ user: String, date: Date }],
     popularity_meter: Number,
-    Image_post: [{ image: String, date: Date, caption: String }],
-    video_post: [{ video: String, date: Date, caption: String }],
     pet_name: String,
     pet_species: {
-        data1: String,
-        data2: String,
-        data3: String
+        species:String,
+        breed:String,
+        origin:String,
+        life_span:String
     },
     pet_health:{
         height:Number,
         weight:Number,
         age:Number,
         skin:String,
-        teeth:Number
     }
 
 })
