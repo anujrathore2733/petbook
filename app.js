@@ -1,6 +1,10 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var session = require('express-session')
+
+
+
 // var cookieParser = require('cookie-parser');
 
 
@@ -13,7 +17,13 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-
+app.use(session({
+  secret:'disaster',
+  cookie:{
+    maxAge:1000*60*60,
+    rolling:true
+  }
+}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

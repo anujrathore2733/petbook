@@ -57,8 +57,8 @@ user_controller.login = function(req,res,next){
             }
             else{
                 if(result.password == req.body.password){
-                    console.log('login success')
-
+                    req.session.user = result._id
+                    res.redirect('/Authusers/profile')
                 }
                 else{
 
