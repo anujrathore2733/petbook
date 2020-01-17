@@ -1,12 +1,5 @@
 $(document).ready(function () {
 
-    
-
-    $('#customCheck1').click(function() {
-
-
-        $("#pet_name").toggle(this.checked);
-    });
 
     var petnamevalid = false
     var emailvalid = false
