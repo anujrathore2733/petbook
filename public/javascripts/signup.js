@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("#signup_button").prop("disabled", true);
+    
 
     $('#customCheck1').click(function() {
 
@@ -8,21 +8,24 @@ $(document).ready(function () {
         $("#pet_name").toggle(this.checked);
     });
 
-    var petnamevalid = true
-    var emailvalid = true
-    var pass_match = true
+    var petnamevalid = false
+    var emailvalid = false
+    var pass_match = false
 
     $('#inputUserame').on('blur',function(){
-        console.log('hello')
         var value = $('#inputUserame').val()
         var pattern = /^[a-zA-Z\s]+$/
         if(!pattern.test(value)){
-            $('#petname_small').attr('class','text-danger')
-            $('#petname_small').text('pet should have letters only')
+            $('#petnamelabel').attr('class','text-danger')
+            $('#petnamelabel').text('pet name should have letters only')
             petnamevalid = false
+            checkvalidsation()
         }
         else{
             petnamevalid = true
+            $('#petnamelabel').attr('class','')
+            $('#petnamelabel').text("Your pet's name")
+            checkvalidsation()
         }
        
     })
@@ -33,12 +36,14 @@ $(document).ready(function () {
         if(!pattern.test(email)){
             $('#email_label').attr('class','text-danger')
             $('#email_label').text('Enter valid email')
-            $('#inputEmail').css('border','2px solid green')
             emailvalid = false
+            checkvalidsation()
         }
         else{
-            $('#inputEmail').css('border','2px solid red')
+            $('#email_label').attr('class','')
+            $('#email_label').text('Email')
             emailvalid = true
+            checkvalidsation()
         }
         
     })
@@ -47,22 +52,39 @@ $(document).ready(function () {
         var pass = $('#inputPassword').val()
         var pass_cnf = $('#inputConfirmPassword').val()
         if(pass != pass_cnf){
-            $('#pass_small').attr('class','text-danger')
-            $('#pass_small').text('Oops! password didnt match')
+            $('#cnfpasslabel').attr('class','text-danger')
+            $('#cnfpasslabel').text('Oops! password didnt match')
             pass_match = false
+            checkvalidsation()
         }
         else{
+            $('#cnfpasslabel').attr('class','')
+            $('#cnfpasslabel').text('Confim password')
             pass_match = true
+            checkvalidsation()
+            
         }
     })
 
-    if(pass_match != true||emailvalid != true||petnamevalid != true){
+    function checkvalidsation(){
+        if(pass_match == true && emailvalid == true && petnamevalid == true){
 
-        $('#signup_button').attr('disabled',true)
+            $('#signup_button').prop('disabled',false)
+        }
+        else{
+            $('#signup_button').prop('disabled',true)
+        }
     }
-    else{
-        $('#signup_button').attr('disabled',false)
-    }
+
+
+    
+    $('#signup_button').on('click',function(){
+
+        $('#signupform').submit()
+
+    })
+    
+
 
 
 

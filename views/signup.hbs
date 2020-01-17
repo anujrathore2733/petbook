@@ -39,13 +39,13 @@
                         {{/if}}
                         <h5 class="card-title text-center">Register</h5>
                         
-                        <form class="form-signin" method="POST" action="/signup">
+                        <form class="form-signin" method="POST" action="/signup" id="signupform">
                             
                             <div class="form-label-group" id="pet_name">
                                 <input type="text" name="pet_name" id="inputUserame" class="form-control"
                                     placeholder="Your pet's name" required>
                                     <small id="petname_small"></small>
-                                <label for="inputUserame">Your pet's name</label>
+                                <label for="inputUserame" id="petnamelabel">Your pet's name</label>
                             </div>
 
                             <div class="form-label-group">
@@ -67,12 +67,12 @@
                                 <input type="password" id="inputConfirmPassword" class="form-control"
                                     placeholder="Password" required>
                                     <small id="pass_small"></small>
-                                <label for="inputConfirmPassword">Confirm password</label>
+                                <label for="inputConfirmPassword" id="cnfpasslabel">Confirm password</label>
                             </div>
 
                             <button class="btn btn-lg btn-primary btn-block text-uppercase"
-                                type="submit" id="signup_button">Register</button>
-                            <a class="d-block text-center mt-2 small" href="/login"> Login </a>
+                                type="button" id="signup_button" disabled='true'>Register</button>
+                            <span>already a member?</span><a class="text-center mt-2 small" href="/login"> Login </a>
                             <hr class="my-4">
                             <button class="btn btn-lg btn-google btn-block text-uppercase" type="button"><i
                                     class="fab fa-google mr-2"></i> Sign up with Google</button>
