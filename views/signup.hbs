@@ -40,13 +40,10 @@
                         <h5 class="card-title text-center">Register</h5>
                         
                         <form class="form-signin" method="POST" action="/signup">
-                            <div class="custom-control custom-checkbox mb-3">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">Own a pet</label>
-                            </div>
-                            <div class="form-label-group" id="pet_name" style="display: none;">
+                            
+                            <div class="form-label-group" id="pet_name">
                                 <input type="text" name="pet_name" id="inputUserame" class="form-control"
-                                    placeholder="Your pet's name">
+                                    placeholder="Your pet's name" required>
                                     <small id="petname_small"></small>
                                 <label for="inputUserame">Your pet's name</label>
                             </div>

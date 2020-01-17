@@ -34,13 +34,13 @@
                             <div class="details">
                                 <h4>{{user_data.pet_name}}<i class="fa fa-sheild"></i></h4>
                                 <div class="ml-2">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star checked" id="ratingstar1"></span>
+                                    <span class="fa fa-star checked" id="ratingstar1"></span>
+                                    <span class="fa fa-star checked" id="ratingstar1"></span>
+                                    <span class="fa fa-star" id="ratingstar1"></span>
+                                    <span class="fa fa-star" id="ratingstar1"></span>
                                 </div>
-                                <div class="mg-top-10 d-flex justify-content-between">
+                                <div class="mg-top-10">
                                     <button class="btn btn-blue btn-sm" data-toggle="modal" type="button"
                                         data-target="#followers">Followers<span class="badge ml-2"
                                             id="followers_count">{{user_data.followers.length}}</span></button>
@@ -162,28 +162,39 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="/Authusers/editprofile" method="POST" enctype="multipart/form-data">
                         <h6 class="text-center">Profile</h6>
+                        <label>Cover pic</label>
                         <input type="file" placeholder="coverpic" name="cover_pic">
+                        <label>profile pic</label>
                         <input type="file" placeholder="profile pic" name="profile_pic">
-                        <input type="tex" name="pet_name" placeholder="pet name">
+                        <label>Pet Name</label>
+                        <input type="tex" name="pet_name" placeholder="pet name" value="{{user_data.pet_name}}">
                         <hr>
                         <h6 class="text-center">Species</h6>
+                        <label>Species</label>
                         <select name="species">
                             <option value="Animal">Animal</option>
                             <option value="Bird">Bird</option>
                             <option value="mamal">mamal</option>
                             <option value="reptile">reptile</option>
                         </select>
-                        <input type="text" name="breed" placeholder="breed">
-                        <input type="text" name="origin" placeholder="origin">
-                        <input type="text" name="life_span" placeholder="life span">
+                        <label>Breed</label>
+                        <input type="text" name="breed" placeholder="breed" value="{{user_data.pet_species.breed}}">
+                        <label>Origin</label>
+                        <input type="text" name="origin" placeholder="origin" value="{{user_data.pet_species.origin}}">
+                        <label>Life Span</label>
+                        <input type="text" name="life_span" placeholder="life span" value="{{user_data.pet_species.life_span}}">
                         <hr>
                         <h6 class="text-center">Health</h6>
-                        <input type="number" name="age" placeholder="age">
-                        <input type="number" name="height" placeholder="height in cm">
-                        <input type="number" name="weight" placeholder="weight in kg">
-                        <input type="text" name="skin_condition" placeholder="Skin condition">
+                        <label>Age</label>
+                        <input type="number" name="age" placeholder="age" value="{{user_data.pet_health.age}}">
+                        <label>Height</label>
+                        <input type="number" name="height" placeholder="height in cm" value="{{user_data.pet_health.height}}">
+                        <label>Weight</label>
+                        <input type="number" name="weight" placeholder="weight in kg" value="{{user_data.pet_health.weight}}">
+                        <label>Skin condition</label>
+                        <input type="text" name="skin_condition" placeholder="Skin condition" value="{{user_data.pet_health.skin}}">
                         <button type="submit">save details</button>
                     </form>
                 </div>

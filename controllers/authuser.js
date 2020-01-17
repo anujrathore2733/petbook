@@ -62,5 +62,12 @@ auth_controller.load_profilepage = function(req,res,next){
 
 }
 
+auth_controller.editprofile = function(req,res,next){
+    var form = new multiparty.Form()
+    form.parse(req,function(err,fields,files){
+        console.log(err,fields,files)
+    })
+}
+
 
 module.exports = auth_controller

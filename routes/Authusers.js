@@ -17,4 +17,6 @@ router.get('/profile',controller.load_profilepage);
 
 router.post('/share_post',controller.share_post)
 
+router.post('/editprofile',controller.editprofile)
+
 module.exports = router;
