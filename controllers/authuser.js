@@ -66,6 +66,94 @@ auth_controller.editprofile = function(req,res,next){
     var form = new multiparty.Form()
     form.parse(req,function(err,fields,files){
         console.log(err,fields,files)
+        var user_id = mongoose.Types.ObjectId(fields.user_id[0])
+        if(files.cover_pic[0].size == 0 && files.profile_pic[0].size == 0){
+
+            modals.user_profile.updateOne({user_id:user_id},{pet_name:fields.pet_name[0],pet_species:{species:fields.species[0],breed:fields.breed[0],origin:fields.origin[0],life_span:fields.life_span[0]},pet_health:{height:fields.height[0],weight:fields.weight[0],age:fields.age[0],skin:fields.skin_condition[0]}},function(err,profile){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    console.log(profile)
+                    res.redirect('/Authusers/profile?profileupdate=true')
+                }
+            })
+        }
+        if(files.cover_pic[0].size == 0 && files.profile_pic[0].size != 0){
+            cloudinary.uploader.upload(files.profile_pic[0].path,function(err,result){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    console.log(result)
+                    modals.user_profile.updateOne({user_id:user_id},{pet_name:fields.pet_name[0],pet_species:{species:fields.species[0],breed:fields.breed[0],origin:fields.origin[0],life_span:fields.life_span[0]},profile_pic:result.url,pet_health:{height:fields.height[0],weight:fields.weight[0],age:fields.age[0],skin:fields.skin_condition[0]}},function(err,profile){
+                        if(err){
+                            console.log(err)
+                        }
+                        else{
+                            console.log(profile)
+                            res.redirect('/Authusers/profile?profileupdate=true')
+                        }
+
+                    })
+                }
+                
+            })
+        }
+        if(files.cover_pic[0].size != 0 && files.profile_pic[0].size == 0){
+            cloudinary.uploader.upload(files.cover_pic[0].path,function(err,result){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    console.log(result)
+                    modals.user_profile.updateOne({user_id:user_id},{pet_name:fields.pet_name[0],pet_species:{species:fields.species[0],breed:fields.breed[0],origin:fields.origin[0],life_span:fields.life_span[0]},profile_cover_pic:result.url,pet_health:{height:fields.height[0],weight:fields.weight[0],age:fields.age[0],skin:fields.skin_condition[0]}},function(err,profile){
+                        if(err){
+                            console.log(err)
+                        }
+                        else{
+                            console.log(profile)
+                            res.redirect('/Authusers/profile?profileupdate=true')
+                        }
+                    })
+                }
+                
+            })
+        }
+        if(files.cover_pic[0].size != 0 && files.profile_pic[0].size != 0){
+            cloudinary.uploader.upload(files.cover_pic[0].path,function(err,cp_result){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    console.log(cp_result)
+                    cloudinary.uploader.upload(files.profile_pic[0].path,function(err,pp_result){
+                        if(err){
+                            console.log(err)
+                        }
+                        else{
+                            console.log(pp_result)
+                            modals.user_profile.updateOne({user_id:user_id},{pet_name:fields.pet_name[0],pet_species:{species:fields.species[0],breed:fields.breed[0],origin:fields.origin[0],life_span:fields.life_span[0]},profile_cover_pic:cp_result.url,profile_pic:pp_result.url,pet_health:{height:fields.height[0],weight:fields.weight[0],age:fields.age[0],skin:fields.skin_condition[0]}},function(err,profile){
+                                if(err){
+                                    console.log(err)
+                                }
+                                else{
+                                    console.log(profile)
+                                    res.redirect('/Authusers/profile?profileupdate=true')
+                                }
+                            })
+                        }
+                        
+                    })
+
+                    
+                }
+                
+            })
+
+        }
+
+
     })
 }
 
