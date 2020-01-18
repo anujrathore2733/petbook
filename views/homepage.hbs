@@ -82,26 +82,31 @@
                         <textarea class="form-control" id="post_caption" rows="3"></textarea>
                         <label for="attachment1" class="btn btn-primary mt-2"> Add Photo / Video </label>
                         <input type="file"  id="attachment1" style="display: none;">
+                        <input type="hidden" id="petname" value="{{user_data.pet_name}}">
                         <button type="button" class="btn btn-primary mt-2" id="share_post">Post</button>
                     </div>
                 
                 <hr>
 
-                <div class="card py-2">
-                    <div class="card-body">
-                        <h4 class="card-title"> <a href="" class="text-dark"> Fish </a></h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div id="display_post">
+                    {{#each post_data}}
+                    <div class="card py-2 mt-2" id="{{this._id}}">
+                        <div class="card-body">
+                            <h4 class="card-title"> <a href="" class="text-dark"> {{this.pet_name}}</a></h4>
+                            <p class="card-text">{{this.caption}}</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                        <img src="{{this.post_media}}"
+                            class="card-img-top" alt="...">
+                        <div class="d-flex justify-content-between mt-1 p-2">
+                            <button class="btn btn-primary" > Like </button>
+                            <button class="btn btn-primary"> Comment </button>
+                            <button class="btn btn-primary"> Share </button>
+                        </div>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                        class="card-img-top" alt="...">
-                    <div class="d-flex justify-content-between mt-1 p-2">
-                        <button class="btn btn-primary"> Like </button>
-                        <button class="btn btn-primary"> Comment </button>
-                        <button class="btn btn-primary"> Share </button>
-                    </div>
+                    {{/each}}
                 </div>
+
 
             </div>
 

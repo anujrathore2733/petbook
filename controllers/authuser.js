@@ -30,11 +30,12 @@ auth_controller.share_post = function (req,res, next) {
                 var datetime = new Date()
                 console.log(datetime)
 
-                var post = new modals.user_post({ post_media: result.url,caption:fields.caption[0],user_id:req.session.user,date:datetime})
+                var post = new modals.user_post({ post_media: result.url,caption:fields.caption[0],user_id:req.session.user,date:datetime,pet_name:fields.pet_name[0]})
                 console.log(post)
-                post.save(function (err, book) {
+                post.save(function (err, post) {
                     if (err) return console.error(err);
-                    res.send('post successfull')
+                    console.log(post,'this is post')
+                    res.send(post)
 
                 })
 
@@ -160,13 +161,36 @@ auth_controller.editprofile = function(req,res,next){
 }
 
 auth_controller.load_homepage = function(req,res,next){
-    res.render('homepage.hbs')
+    var user_id =mongoose.Types.ObjectId(req.session.user)
+
+    modals.user_profile.findOne({user_id:user_id},function(err,user_data){
+        if(err){
+            console.log(err)
+        }
+        else{
+            modals.user_post.find({},function(err,result){
+                res.render('homepage.hbs',{user_data:user_data,post_data:result})
+
+            })
+
+            
+        }
+
+    })
+
+    
 }
 
 auth_controller.get_posts = function(req,res,next){
     var user_id = mongoose.Types.ObjectId(req.session.user)
-    modals.user_post.find({user_id:user_id},)
+    modals.user_post.find({},function(err,result){
+        console.log(result)
+        res.send(result)
+    })
 }
 
+auth_controller.viewprofile = function(req,res,next){
+    res.render('viewprofile.hbs')
+}
 
 module.exports = auth_controller

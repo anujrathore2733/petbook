@@ -19,6 +19,8 @@ router.get('/profile',controller.load_profilepage);
 
 router.get('/gettingpost',controller.get_posts)
 
+router.get('/viewprofile',controller.viewprofile)
+
 router.post('/share_post',controller.share_post)
 
 router.post('/editprofile',controller.editprofile)

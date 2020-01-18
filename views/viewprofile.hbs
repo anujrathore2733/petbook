@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Profile </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/2dd4957359.js"></script>
+    <link rel="stylesheet" href="/stylesheets/profilepage.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand ml-4" href="#">Petsbook</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="navbar-nav mr-auto ml-4">
+                <input class="form-control mr-sm-2" style="width: 500px;" type="search" placeholder="Search"
+                    aria-label="Search">
+                <div class="form-group has-feedback">
+                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                </div>
+            </form>
+            <ul class="navbar-nav ml-auto mr-sm-4">
+                <li class="nav-item active">
+                    <a class="nav-link mr-sm-4" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link mr-sm-4" href="#">Create<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link mr-sm-4" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        More
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-white profile-widget">
+                    <div class="row">
+                        <div class="col-sm-12 lg-12">
+                            <div class="image-container bg2">
+                                <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                                    class="avatar" alt="avatar">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="details">
+                                <h4>{{user_data.pet_name}}<i class="fa fa-sheild"></i></h4>
+                                <div class="ml-2">
+                                    <span class="fa fa-star checked" id="ratingstar1"></span>
+                                    <span class="fa fa-star checked" id="ratingstar1"></span>
+                                    <span class="fa fa-star checked" id="ratingstar1"></span>
+                                    <span class="fa fa-star" id="ratingstar1"></span>
+                                    <span class="fa fa-star" id="ratingstar1"></span>
+                                </div>
+                                <div class="mg-top-10">
+                                    <button class="btn btn-blue btn-sm" data-toggle="modal" type="button"
+                                        data-target="#followers">Followers<span class="badge ml-2"
+                                            id="followers_count">{{user_data.followers.length}}</span></button>
+                                    <button class="btn btn-green btn-sm" data-toggle="modal" type="button"
+                                        data-target="#followings">Following<span class="badge ml-2"
+                                            id="following_count">{{user_data.followings.length}}</span></button>
+                                    <button class="btn btn-blue btn-sm" data-toggle="modal" type="button"
+                                        data-target="#editprofile">Edit profile</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="col-md-2">
+                <div class="card">
+                    <h5 class="card-header text-center details1">Species</h5>
+                    <div class="card-body text-center">
+                        <h6 class="text-center"><b>{{user_data.pet_species.species}}</b></h6>
+                        <hr>
+                        <h6 class="text-center"><b>Breed</b></h6>
+                        <p>{{user_data.pet_species.breed}}</p>
+                        <hr>
+                        <h6 class="text-center"><b>Origin</b></h6>
+                        <p>{{user_data.pet_species.origin}}</p>
+                        <hr>
+                        <h6 class="text-center"><b>Life Span</b></h6>
+                        <p>{{user_data.pet_species.life_span}}</p>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <h5 class="card-header">Featured</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <h5 class="card-header text-center details1">Health</h5>
+                    <div class="card-body text-center">
+                        <h6 class="text-center"><b>Age</b></h6>
+                        <p>{{user_data.pet_health.age}}</p>
+                        <hr>
+                        <h6 class="text-center"><b>Height</b></h6>
+                        <p>{{user_data.pet_health.height}}</p>
+                        <hr>
+                        <h6 class="text-center"><b>Weight</b></h6>
+                        <p>{{user_data.pet_health.weight}}</p>
+                        <hr>
+                        <h6 class="text-center"><b>Skin Condition</b></h6>
+                        <p>{{user_data.pet_health.skin}}</p>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="followers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Followers</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    followers
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="followings" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Following</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    followings
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit profile details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <form action="/Authusers/editprofile" method="POST" class="form-group-mt-4"
+                                    enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <h4 class="text-center">Profile</h4>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="coverPic">Cover pic</label>
+                                        <input type="file" placeholder="coverpic" name="cover_pic">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>profile pic</label>
+                                        <input type="file" placeholder="profile pic" name="profile_pic">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Pet Name</label>
+                                        <input type="text" class="form-control" name="pet_name" placeholder="pet name"
+                                            value="{{user_data.pet_name}}">
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <h4 class="text-center">Species</h4>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Species</label>
+                                        <select name="species">
+                                            <option value="Animal">Animal</option>
+                                            <option value="Bird">Bird</option>
+                                            <option value="mamal">mamal</option>
+                                            <option value="reptile">reptile</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Breed</label>
+                                        <input type="text" class="form-control" name="breed" placeholder="breed"
+                                            value="{{user_data.pet_species.breed}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Origin</label>
+                                        <input type="text" name="origin" class="form-control" placeholder="origin"
+                                            value="{{user_data.pet_species.origin}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Life Span</label>
+                                        <input type="text" name="life_span" class="form-control" placeholder="life span"
+                                            value="{{user_data.pet_species.life_span}}">
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <h4 class="text-center">Health</h4>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Age</label>
+                                        <input type="number" class="form-control" name="age" placeholder="age"
+                                            value="{{user_data.pet_health.age}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Height</label>
+                                        <input type="number" class="form-control" name="height" placeholder="height in cm"
+                                            value="{{user_data.pet_health.height}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Weight</label>
+                                        <input type="number" class="form-control" name="weight" placeholder="weight in kg"
+                                            value="{{user_data.pet_health.weight}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Skin condition</label>
+                                        <input type="text" class="form-control" name="skin_condition" placeholder="Skin condition"
+                                            value="{{user_data.pet_health.skin}}">
+                                    </div>
+                                    <input type="hidden" name="user_id" value="{{user_data.user_id}}">
+                                    <button class="btn btn-primary" type="submit">Save Details</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+
+
+
+</html>

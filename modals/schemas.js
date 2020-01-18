@@ -41,6 +41,7 @@ var postschemas = new mongoose.Schema({
         type:String,
         required:true,
     },
+    pet_name:String,
     post_media: String,
     date:Date,
     caption:String,

@@ -1,5 +1,33 @@
 $(document).ready(function () {
 
+    var latest_post = []
+
+
+
+    // function load_posts(){
+    //     $.ajax({
+    //         type: "get",
+    //         url: "/Authusers/gettingpost",
+    //         // data: "data",
+    //         // dataType: "dataType",
+    //         success: function (response) {
+    //             console.log(response)
+    //             response = post_data
+    //             display_post()
+                
+    //         }
+    //     });
+    // }
+    // load_posts()
+
+    function display_latest_post(){
+        
+    }
+
+
+    
+    
+
     $('#share_post').on('click', function () {
 
 
@@ -7,6 +35,7 @@ $(document).ready(function () {
 
 
         var cap = $('#post_caption').val()
+        var petname = $('#petname').val()
 
         console.log(cap, 'thsi is caption')
 
@@ -25,6 +54,7 @@ $(document).ready(function () {
 
             data.append('caption', cap)
             data.append('file', fil)
+            data.append('pet_name',petname)
 
             console.log(data)
 
@@ -39,7 +69,7 @@ $(document).ready(function () {
                 contentType: false,
                 // dataType: "dataType",
                 success: function (response) {
-                    console.log('hello')
+                    latest_post = response
                     $('#post_caption').val('')
                     $("#attchment1").val('')
                     $('#share_post').attr("disabled", false);
@@ -53,4 +83,6 @@ $(document).ready(function () {
 
 
     })
+
+
 });
