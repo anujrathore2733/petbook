@@ -157,5 +157,9 @@ auth_controller.editprofile = function(req,res,next){
     })
 }
 
+auth_controller.load_homepage = function(req,res,next){
+    res.render('homepage.hbs')
+}
+
 
 module.exports = auth_controller

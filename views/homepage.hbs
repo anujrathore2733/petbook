@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Profile </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/homepage.css">
+</head>
+
+<body>
+    <header>
+        <hr>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="dropdown sidebar sidebar-md">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Menu
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li class="dropdown-header"> Account </li>
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#"> About us </a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#"> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Create Post</label>
+                        <textarea class="form-control" id="post_caption" rows="3"></textarea>
+                        <label for="attachment1" class="btn btn-primary mt-2"> Add Photo / Video </label>
+                        <input type="file"  id="attachment1" style="display: none;">
+                        <button type="button" class="btn btn-primary mt-2" id="share_post">Post</button>
+                    </div>
+                
+                <hr>
+
+                <div class="card py-2">
+                    <div class="card-body">
+                        <h4 class="card-title"> <a href="" class="text-dark"> Fish </a></h4>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                        class="card-img-top" alt="...">
+                    <div class="d-flex justify-content-between mt-1 p-2">
+                        <button class="btn btn-primary"> Like </button>
+                        <button class="btn btn-primary"> Comment </button>
+                        <button class="btn btn-primary"> Share </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="card" style="width: 36rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="card" style="width: 36rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="/javascripts/homepage.js"></script>
+
+</body>
+
+</html>

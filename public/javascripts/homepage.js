@@ -1,10 +1,20 @@
 $(document).ready(function () {
 
     $('#share_post').on('click', function () {
-        $('#share_post').attr("disabled", true);
+        
+
+
+        
 
         var cap = $('#post_caption').val()
-        var fil = document.getElementById("attchment1").files[0];
+        
+        console.log(cap,'thsi is caption')
+        
+        var fil = document.getElementById('attachment1').files[0]
+        
+
+
+        $('#share_post').attr("disabled", true);
 
         
 

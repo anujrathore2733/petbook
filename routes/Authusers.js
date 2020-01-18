@@ -13,6 +13,8 @@ router.use(function(req,res,next){
     res.redirect('/login')
   }
 })
+
+router.get('/homepage',controller.load_homepage)
 router.get('/profile',controller.load_profilepage);
 
 router.post('/share_post',controller.share_post)
