@@ -169,7 +169,7 @@ auth_controller.load_homepage = function(req,res,next){
         }
         else{
             modals.user_post.find({},function(err,result){
-                res.render('homepage.hbs',{user_data:user_data,post_data:result})
+                res.render('homepage.hbs',{user_data:user_data,post_data:result.reverse()})
 
             })
 
