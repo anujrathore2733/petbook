@@ -27,8 +27,10 @@ auth_controller.share_post = function (req,res, next) {
                 
             }
             else {
+                var datetime = new Date()
+                console.log(datetime)
 
-                var post = new modals.user_post({ post_media: result.url,caption:fields.caption[0] })
+                var post = new modals.user_post({ post_media: result.url,caption:fields.caption[0],user_id:req.session.user,date:datetime})
                 console.log(post)
                 post.save(function (err, book) {
                     if (err) return console.error(err);
@@ -159,6 +161,11 @@ auth_controller.editprofile = function(req,res,next){
 
 auth_controller.load_homepage = function(req,res,next){
     res.render('homepage.hbs')
+}
+
+auth_controller.get_posts = function(req,res,next){
+    var user_id = mongoose.Types.ObjectId(req.session.user)
+    modals.user_post.find({user_id:user_id},)
 }
 
 

@@ -37,8 +37,12 @@ var user_profileSchema = new mongoose.Schema({
 })
 
 var postschemas = new mongoose.Schema({
-    user_id: String,
+    user_id:{
+        type:String,
+        required:true,
+    },
     post_media: String,
+    date:Date,
     caption:String,
     likes:[{user_id:String,date:Date}],
     comments:[{user_id:String,comment:String,data:Date}]

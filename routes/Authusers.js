@@ -17,6 +17,8 @@ router.use(function(req,res,next){
 router.get('/homepage',controller.load_homepage)
 router.get('/profile',controller.load_profilepage);
 
+router.get('/gettingpost',controller.get_posts)
+
 router.post('/share_post',controller.share_post)
 
 router.post('/editprofile',controller.editprofile)
