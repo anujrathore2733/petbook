@@ -15,7 +15,48 @@
 
 </head>
 
-<body class="">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand ml-4" href="#">Petsbook</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="navbar-nav mr-auto ml-4">
+                <input class="form-control mr-sm-2" style="width: 500px;" type="search" placeholder="Search"
+                    aria-label="Search">
+                <div class="form-group has-feedback">
+                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                </div>
+            </form>
+            <ul class="navbar-nav ml-auto mr-sm-4">
+                <li class="nav-item active">
+                    <a class="nav-link mr-sm-4" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link mr-sm-4" href="#">Create<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link mr-sm-4" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        More
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
 
     <div class="container">
 
@@ -119,7 +160,7 @@
     </div>
     <div class="modal fade" id="followers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Followers</h5>
@@ -136,7 +177,7 @@
     </div>
     <div class="modal fade" id="followings" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Following</h5>
@@ -153,7 +194,7 @@
     </div>
     <div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit profile details</h5>
@@ -165,7 +206,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <form action="/Authusers/editprofile" method="POST" class="form-group-mt    -4"
+                                <form action="/Authusers/editprofile" method="POST" class="form-group-mt-4"
                                     enctype="multipart/form-data">
                                     <div class="form-group">
                                         <h4 class="text-center">Profile</h4>
