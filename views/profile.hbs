@@ -16,47 +16,55 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand ml-4" href="#">Petsbook</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand ml-4" href="#">
+                <img src="https://newsinhealth.nih.gov/sites/nihNIH/files/styles/featured_media_breakpoint-large/public/2018/February/illustration-people-different-types-pets.jpg?itok=Aalkb5Aa" width="30" height="30"
+                    class="d-inline-block align-top" alt="">
+                Petsbook
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="navbar-nav mr-auto ml-4">
-                <input class="form-control mr-sm-2" style="width: 500px;" type="search" placeholder="Search"
-                    aria-label="Search">
-                <div class="form-group has-feedback">
-                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                </div>
-            </form>
-            <ul class="navbar-nav ml-auto mr-sm-4">
-                <li class="nav-item active">
-                    <a class="nav-link mr-sm-4" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link mr-sm-4" href="#">Create<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link mr-sm-4" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        More
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="navbar-nav mr-auto ml-4">
+                    <input class="form-control mr-sm-2" style="width: 500px;" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <div class="form-group has-feedback">
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
                     </div>
-                </li>
-            </ul>
+                </form>
+                <ul class="navbar-nav ml-auto mr-sm-4">
+                    <li class="nav-item active">
+                        <a class="nav-link mr-sm-4" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link mr-sm-4" href="#">Create<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link mr-sm-4" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            More
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </div>
+                    </li>
+                </ul>
 
-        </div>
-    </nav>
+            </div>
+        </nav>
+
+    </header>
+
 
     <div class="container">
 
@@ -263,18 +271,18 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Height</label>
-                                        <input type="number" class="form-control" name="height" placeholder="height in cm"
-                                            value="{{user_data.pet_health.height}}">
+                                        <input type="number" class="form-control" name="height"
+                                            placeholder="height in cm" value="{{user_data.pet_health.height}}">
                                     </div>
                                     <div class="form-group">
                                         <label>Weight</label>
-                                        <input type="number" class="form-control" name="weight" placeholder="weight in kg"
-                                            value="{{user_data.pet_health.weight}}">
+                                        <input type="number" class="form-control" name="weight"
+                                            placeholder="weight in kg" value="{{user_data.pet_health.weight}}">
                                     </div>
                                     <div class="form-group">
                                         <label>Skin condition</label>
-                                        <input type="text" class="form-control" name="skin_condition" placeholder="Skin condition"
-                                            value="{{user_data.pet_health.skin}}">
+                                        <input type="text" class="form-control" name="skin_condition"
+                                            placeholder="Skin condition" value="{{user_data.pet_health.skin}}">
                                     </div>
                                     <input type="hidden" name="user_id" value="{{user_data.user_id}}">
                                     <button class="btn btn-primary" type="submit">Save Details</button>

@@ -14,7 +14,11 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand ml-4" href="#">Petsbook</a>
+        <a class="navbar-brand ml-4" href="#">
+            <img src="https://newsinhealth.nih.gov/sites/nihNIH/files/styles/featured_media_breakpoint-large/public/2018/February/illustration-people-different-types-pets.jpg?itok=Aalkb5Aa"
+                width="30" height="30" class="d-inline-block align-top" alt="">
+            Petsbook
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -76,16 +80,16 @@
             </div>
             <div class="col-md-6">
 
-                
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Create Post</label>
-                        <textarea class="form-control" id="post_caption" rows="3"></textarea>
-                        <label for="attachment1" class="btn btn-primary mt-2"> Add Photo / Video </label>
-                        <input type="file"  id="attachment1" style="display: none;">
-                        <input type="hidden" id="petname" value="{{user_data.pet_name}}">
-                        <button type="button" class="btn btn-primary mt-2" id="share_post">Post</button>
-                    </div>
-                
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Create Post</label>
+                    <textarea class="form-control" id="post_caption" rows="3"></textarea>
+                    <label for="attachment1" class="btn btn-primary mt-2"> Add Photo / Video </label>
+                    <input type="file" id="attachment1" style="display: none;">
+                    <input type="hidden" id="petname" value="{{user_data.pet_name}}">
+                    <button type="button" class="btn btn-primary mt-2" id="share_post">Post</button>
+                </div>
+
                 <hr>
 
                 <div id="display_post">
@@ -96,10 +100,9 @@
                             <p class="card-text">{{this.caption}}</p>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                         </div>
-                        <img src="{{this.post_media}}"
-                            class="card-img-top" alt="...">
+                        <img src="{{this.post_media}}" class="card-img-top" alt="...">
                         <div class="d-flex justify-content-between mt-1 p-2">
-                            <button class="btn btn-primary" > Like </button>
+                            <button class="btn btn-primary"> Like </button>
                             <button class="btn btn-primary"> Comment </button>
                             <button class="btn btn-primary"> Share </button>
                         </div>
