@@ -190,7 +190,17 @@ auth_controller.get_posts = function(req,res,next){
 }
 
 auth_controller.viewprofile = function(req,res,next){
-    res.render('viewprofile.hbs')
+    console.log(req.query,'this is request query')
+    var user_id = mongoose.Types.ObjectId(req.query.id)
+    modals.user_profile.findOne({user_id:user_id},function(err,result){
+        if(err){
+            console.log(err)
+        }
+        else{
+            res.render('viewprofile.hbs',{user_data:result})
+        }
+    })
+    
 }
 
 module.exports = auth_controller
