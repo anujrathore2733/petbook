@@ -2,7 +2,7 @@ body{
     padding: 0%;
 }
 
-.sidebar .dropdown-toggle {
+.sidebar .dropdown-toggle { 
     width: 100%;
 }
 
@@ -192,4 +192,4 @@ body{
         background-color: #337ab7;
         border-color: #337ab7;
     }
-}
+} 
