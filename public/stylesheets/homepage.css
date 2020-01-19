@@ -1,5 +1,6 @@
 body{
     padding: 0%;
+    overflow-x: hidden;
 }
 
 .sidebar .dropdown-toggle { 

@@ -203,4 +203,14 @@ auth_controller.viewprofile = function(req,res,next){
     
 }
 
+auth_controller.savecomment = function(req,res,next){
+    console.log(req.body,'this is anjx')
+    var post_id = mongoose.Types.ObjectId(req.body.post_id)
+    modals.user_post.updateOne({_id:post_id},{$push:{comments:{user_id:req.session.user,comment:req.body.comment,pet_name:req.body.petname}}},function(err,result){
+        console.log(result,'this isresult')
+        res.send(result)
+    })
+    
+}
+
 module.exports = auth_controller

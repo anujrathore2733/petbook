@@ -46,7 +46,7 @@ var postschemas = new mongoose.Schema({
     date:Date,
     caption:String,
     likes:[{user_id:String,date:Date}],
-    comments:[{user_id:String,comment:String,data:Date}]
+    comments:[{user_id:String,comment:String,data:Date,pet_name:String}]
     
 })
 

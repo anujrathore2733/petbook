@@ -25,4 +25,6 @@ router.post('/share_post',controller.share_post)
 
 router.post('/editprofile',controller.editprofile)
 
+router.post('/savecomment',controller.savecomment)
+
 module.exports = router;
