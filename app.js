@@ -2,6 +2,11 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var session = require('express-session')
+var hbs = require('hbs')
+var helpers = require('handlebars-helpers')({
+  handlebars:hbs
+});
+
 
 
 

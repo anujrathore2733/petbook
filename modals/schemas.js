@@ -45,8 +45,8 @@ var postschemas = new mongoose.Schema({
     post_media: String,
     date:Date,
     caption:String,
-    likes:[{user_id:String,date:Date}],
-    comments:[{user_id:String,comment:String,data:Date,pet_name:String}]
+    likes:[String],
+    comments:[{user_id:String,comment:String,date:Date,pet_name:String}]
     
 })
 

@@ -206,11 +206,38 @@ auth_controller.viewprofile = function(req,res,next){
 auth_controller.savecomment = function(req,res,next){
     console.log(req.body,'this is anjx')
     var post_id = mongoose.Types.ObjectId(req.body.post_id)
-    modals.user_post.updateOne({_id:post_id},{$push:{comments:{user_id:req.session.user,comment:req.body.comment,pet_name:req.body.petname}}},function(err,result){
+    var date = new Date()
+    modals.user_post.updateOne({_id:post_id},{$push:{comments:{user_id:req.session.user,comment:req.body.comment,pet_name:req.body.petname,date:date}}},function(err,result){
         console.log(result,'this isresult')
-        res.send(result)
+        res.send('hello')
     })
     
+}
+
+auth_controller.likepost = function(req,res,next){
+    console.log(req.body,'like the post')
+    var post_id = mongoose.Types.ObjectId(req.body.post_id)
+    modals.user_post.update({_id:post_id},{$push:{likes:req.session.user}},function(err,result){
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log(result)
+        }
+    })
+}
+
+auth_controller.dislikepost = function(req,res,next){
+    console.log(req.body,'displike the post')
+    var post_id = mongoose.Types.ObjectId(req.body.post_id)
+    modals.user_post.update({_id:post_id},{$pull:{likes:req.session.user}},function(err,result){
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log(result)
+        }
+    })
 }
 
 module.exports = auth_controller

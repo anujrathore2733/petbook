@@ -89,7 +89,7 @@ $(document).ready(function () {
         }
 
         // .html('<h6>'+petname+'</h6><br><p>'+comment+'</P>')
-        console.log($(this).parent().next())
+        console.log($(this).parent().append('<div class="bg-light border border-dark rounded"><h5><b>'+petname+'</b></h5><p class="bg-light border border-dark rounded">'+comment+'</p></div>'),'this is sibilings')
         console.log(data)
 
         $.ajax({
@@ -105,8 +105,38 @@ $(document).ready(function () {
         });
 
     })
-
     
+    
+    $("body").on("click",'.likebtn',function() {
+
+        var data = {post_id:$(this).val()}
+        
+        if($(this).html()== 'like'){
+            $(this).html('unlike')
+            $.ajax({
+                type: "post",
+                url: "/Authusers/likepost",
+                data: data,
+                dataType: "json",
+                success: function (response) {
+                    console.log('like done')
+                }
+            });
+        }
+        else{
+            $(this).html('like')
+            $.ajax({
+                type: "post",
+                url: "/Authusers/dislikepost",
+                data: data,
+                dataType: "json",
+                success: function (response) {
+                    console.log('dislike done')
+                    
+                }
+            });
+        }
+      });
 
     
 

@@ -13,19 +13,20 @@
 </head>
 
 <body>
-    <div class="container">
-        <header>
+    <div class="container-fluid">
+        <header class="w-100">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand ml-4" href="#">
                     <img src="https://newsinhealth.nih.gov/sites/nihNIH/files/styles/featured_media_breakpoint-large/public/2018/February/illustration-people-different-types-pets.jpg?itok=Aalkb5Aa"
                         width="30" height="30" class="d-inline-block align-top" alt="">
                     Petsbook
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-    
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <form class="navbar-nav mr-auto ml-4">
                         <input class="form-control mr-sm-2" style="width: 500px;" type="search" placeholder="Search"
@@ -57,12 +58,12 @@
                             </div>
                         </li>
                     </ul>
-    
+
                 </div>
             </nav>
         </header>
-    
-    
+
+
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -73,7 +74,7 @@
                             <h6 class="card-subtitle mb-2 text-muted"></h6>
                         </div>
                     </div>
-    
+
                 </div>
                 <div class="col-md-6">
                     <div class="card">
@@ -87,9 +88,9 @@
                             <button type="button" class="btn btn-primary mt-2" id="share_post">Post</button>
                         </div>
                     </div>
-    
+
                     <hr>
-    
+
                     <div id="display_post">
                         {{#each post_data}}
                         <div class="card py-2 mt-2" id="{{this._id}}">
@@ -101,31 +102,39 @@
                             </div>
                             <img src="{{this.post_media}}" class="card-img-top" alt="...">
                             <div class="d-flex justify-content-between mt-1 p-2">
-                                <button class="btn btn-primary"> Like </button>
-                                <button type="button" class="btn btn-primary btn-sm cmnt" data-toggle="collapse" data-target="#comments{{this._id}}">comments</button>
+                                {{#inArray this.likes user_data.user_id}}
+                                <button class="btn btn-primary likebtn" value="{{this._id}}">unLike</button>
+                                {{else}}
+                                <button class="btn btn-primary likebtn" value="{{this._id}}">like</button>
+                                {{/inArray}}
+                                <button type="button" class="btn btn-primary btn-sm cmnt" data-toggle="collapse"
+                                    data-target="#comments{{this._id}}">comments</button>
                                 <button class="btn btn-primary"> Share </button>
                             </div>
                             <div id="comments{{this._id}}" class="collapse">
                                 <div>
-    
+
                                 </div>
-                                <div class="hellooo">
+                                <div class="dp">
+
+
+                                    <p style="display: none;">{{sort this.comments "date"}}</p>
                                     {{#each this.comments}}
                                     <div class="bg-light border border-dark rounded">
                                         <h5><b>{{this.pet_name}}</b></h5>
                                         <p class="bg-light border border-dark rounded">{{this.comment}}</p>
                                     </div>
                                     {{/each}}
-                                    
+
                                 </div>
                             </div>
                         </div>
                         {{/each}}
                     </div>
-    
-    
+
+
                 </div>
-    
+
                 <div class="col-md-3">
                     <div class="card" style="height:50rem">
                         <div class="card-header">Suggestion</div>
@@ -142,7 +151,7 @@
                                 <a href=""><img class="mr-2"
                                         src="https://newsinhealth.nih.gov/sites/nihNIH/files/styles/featured_media_breakpoint-large/public/2018/February/illustration-people-different-types-pets.jpg?itok=Aalkb5Aa"
                                         width="50" height="50" class="d-inline-block align-top" alt="">kutaa singh</a>
-                                
+
                                 <button class="btn btn-primary">follow</button>
                             </div>
                         </div>

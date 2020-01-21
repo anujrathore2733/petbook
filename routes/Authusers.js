@@ -21,6 +21,10 @@ router.get('/gettingpost',controller.get_posts)
 
 router.get('/viewprofile',controller.viewprofile)
 
+router.post('/likepost',controller.likepost)
+
+router.post('/dislikepost',controller.dislikepost)
+
 router.post('/share_post',controller.share_post)
 
 router.post('/editprofile',controller.editprofile)
