@@ -5,95 +5,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Profile </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/stylesheets/landingpage.css">
-    <title> Petbook </title>
-    <style></style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/2dd4957359.js"></script>
+    <link rel="stylesheet" href="/stylesheets/profilepage.css">
+    <style>
+
+    </style>
+
 </head>
 
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand ml-4" href="#">
-                <img src="https://newsinhealth.nih.gov/sites/nihNIH/files/styles/featured_media_breakpoint-large/public/2018/February/illustration-people-different-types-pets.jpg?itok=Aalkb5Aa"
-                    width="30" height="30" class="d-inline-block align-top" alt="">
-                Petsbook
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"> Petbook
+
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto mr-sm-4">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link mr-sm-4" href="#">Gallery<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">About us
+                        </a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link mr-sm-4" href="#">About Us<span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link mr-sm-4" href="#">Log-In/Sign-Up <span class="sr-only">(current)</span></a>
-                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Signup</a>
+                    </li>
                 </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="card card-signin flex-row my-5">
+                        <div class="card-img-left d-none d-md-flex">
+                            <!-- Background image for card set in CSS! -->
+                        </div>
+                        <div class="card-body">
+                            {{#if dup_email}}
+                            <div class="alert alert-danger alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>oops!</strong> email already exist.
+                            </div>
+                            {{/if}}
+                            {{#if something_wrong}}
+                            <div class="alert alert-danger alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>oops!</strong> something went wrong try again.
+                            </div>
+                            {{/if}}
+                            <h5 class="card-title text-center">Register</h5>
+
+                            <form class="form-signin" method="POST" action="/signup" id="signupform">
+
+                                <div class="form-label-group" id="pet_name">
+                                    <input type="text" name="pet_name" id="inputUserame" class="form-control"
+                                        placeholder="Your pet's name" required>
+                                    <small id="petname_small"></small>
+                                    <label for="inputUserame" id="petnamelabel">Your pet's name</label>
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="email" name="email" id="inputEmail" class="form-control"
+                                        placeholder="Email address" required>
+                                    <small id="email_small"></small>
+                                    <label id="email_label" for="inputEmail">Email address</label>
+                                </div>
+
+                                <hr>
+
+                                <div class="form-label-group">
+                                    <input type="password" name="password" id="inputPassword" class="form-control"
+                                        placeholder="Password" required>
+                                    <label for="inputPassword">Password</label>
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="password" id="inputConfirmPassword" class="form-control"
+                                        placeholder="Password" required>
+                                    <small id="pass_small"></small>
+                                    <label for="inputConfirmPassword" id="cnfpasslabel">Confirm password</label>
+                                </div>
+
+                                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="button"
+                                    id="signup_button" disabled='true'>Register</button>
+                                <span>already a member?</span><a class="text-center mt-2 small" href="/login"> Login
+                                </a>
+                                <hr class="my-4">
+                                <button class="btn btn-lg btn-google btn-block text-uppercase" type="button"><i
+                                        class="fab fa-google mr-2"></i> Sign up with Google</button>
+                                <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="button"><i
+                                        class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
-        </nav>
-    </header>
-    <section id="container">
-        <div class="back-img"></div>
-        
-        <div class="title">
-            <h2> Spartans! </h2>
         </div>
-    </section>
 
-    <section id="works">
-        <div class="second-img"></div>
-        <div class="title">
-            <h2>This</h2>
+        <!-- Portfolio Item Heading -->
+        <h1 class="my-4">Social Media
+            <small>For pet's </small>
+        </h1>
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-8">
+                <img class="img-fluid"
+                    src="https://images.unsplash.com/photo-1522276498395-f4f68f7f8454?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60/750x500"
+                    alt="">
+            </div>
+
+            <div class="col-md-4">
+                <h3 class="my-3">Petbooks</h3>
+                <p>Pets are part of our everyday lives and part of our families. They provide us with companionship but
+                    also with emotional support, reduce our stress levels, sense of loneliness and help us to increase
+                    our social activities and add to a child's self-esteem and positive emotional development.</p>
+                <h3 class="my-3">In Petbook, you can:</h3>
+                <ul>
+                    <li>Make social media accounts of your pet</li>
+                    <li>Upload photos and videos</li>
+                    <li>Visit the profile of other pets</li>
+                    <li>Watch photos and videos of other pets</li>
+                </ul>
+            </div>
+
         </div>
-    </section>
-    <section id="page">
-        <div class="third-img"></div>
-        <div class="title">
-            <h2>is</h2>
+
+        <h3 class="my-4">Gallery</h3>
+
+        <div class="row">
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <a href="#">
+                    <img class="img-fluid"
+                        src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60/500x300"
+                        alt="">
+                </a>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <a href="#">
+                    <img class="img-fluid"
+                        src="https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60/500x300"
+                        alt="">
+                </a>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <a href="#">
+                    <img class="img-fluid"
+                        src="https://images.unsplash.com/photo-1514917073844-2f691ae526c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60/500x300"
+                        alt="">
+                </a>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <a href="#">
+                    <img class="img-fluid"
+                        src="https://images.unsplash.com/photo-1433162653888-a571db5ccccf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60/500x300"
+                        alt="">
+                </a>
+            </div>
+
         </div>
-    </section>
-    <section id="about">
-        <div class="fourth-img"></div>
-        <div class="title">
-            <h2>Sparta</h2>
-        </div>
-    </section>
+        <!-- /.row -->
 
-
-
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script>
-        $(function () {
-            $('nav a').on('click', function (e) {
-                console.log(this.hash)
-                if (this.hash !== '') {
-                    e.preventDefault()
-
-                    const hash = this.hash
-
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    },
-                        800)
-                }
-            })
-            // $('.fade').addClass('active')
-        })
-
-    </script>
 </body>
 
 

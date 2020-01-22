@@ -102,7 +102,7 @@
                             </div>
                             <img src="{{this.post_media}}" class="card-img-top" alt="...">
                             <div class="d-flex justify-content-between mt-1 p-2">
-                                {{#inArray this.likes user_data.user_id}}
+                                {{#inArray this.likes ../user_data.user_id}}
                                 <button class="btn btn-primary likebtn" value="{{this._id}}">unLike</button>
                                 {{else}}
                                 <button class="btn btn-primary likebtn" value="{{this._id}}">like</button>
