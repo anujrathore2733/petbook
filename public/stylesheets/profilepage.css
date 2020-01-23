@@ -143,8 +143,8 @@ body {
 }
 
 .bg2 {
-    background-image: url('https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/QH2XL2QWVZEJND5Z6OSSQXYZJM.PNG&w=767');
-    opacity: 0.7;
+    background-image: url('https://s3.amazonaws.com/f6s-public/profiles/861015_original.jpg');
+    
 }
 
 .btn-blue {
