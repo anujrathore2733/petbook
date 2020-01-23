@@ -153,7 +153,7 @@ $(document).ready(function () {
 
 
         if ($(this).html() == 'follow') {
-            $(this).attr('class', 'ml-5 btn btn-outline-danger btn-sm fll_btn')
+            $(this).attr('class', 'btn btn-outline-danger btn-sm fll_btn')
             $(this).html('unfollow')
             $.ajax({
                 type: "post",
@@ -166,7 +166,7 @@ $(document).ready(function () {
             });
         }
         else {
-            $(this).attr('class', 'ml-5 btn btn-outline-success btn-sm fll_btn')
+            $(this).attr('class', 'px-3 btn btn-outline-success btn-sm fll_btn')
             $(this).html('follow')
             $.ajax({
                 type: "post",

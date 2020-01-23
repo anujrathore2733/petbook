@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="/icon.ico">
-    <title>Homepage</title>
+    <title>PetBook</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,9 +19,7 @@
 <body class="bg-dark text-light">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <a class="navbar-brand ml-4" href="/Authusers/homepage">
-            <img src="https://newsinhealth.nih.gov/sites/nihNIH/files/styles/featured_media_breakpoint-large/public/2018/February/illustration-people-different-types-pets.jpg?itok=Aalkb5Aa"
-                width="30" height="30" style="border-radius: 50%;" class="d-inline-block align-top" alt="">
-            Petbook
+            PetBook
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,10 +39,10 @@
                     <a class="nav-link mr-sm-4" href="/Authusers/homepage">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link mr-sm-4" href="/Authusers/profile">MyProfile</a>
+                    <a class="nav-link mr-sm-4" href="/Authusers/profile">Profile</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link mr-sm-4" href="/Authusers/logout">LogOut</a>
+                    <a class="nav-link mr-sm-4" href="/Authusers/logout">Logout</a>
                 </li>
             </ul>
             ​
@@ -133,8 +131,8 @@
                             <p style="display: none;">{{sort this.comments "date"}}</p>
                             <div class="mb-5">
                                 <div>
-                                    <textarea cols="102" rows="2"></textarea>
-                                    <button class="btn btn-info btn-sm savecmnt float-right">comment</button>
+                                    <textarea class="form-control" cols="80" rows="2"></textarea>
+                                    <button class="mt-2 btn btn-info btn-sm savecmnt float-right">comment</button>
                                 </div>
 
                             </div>
@@ -156,8 +154,8 @@
             <div class="col-md-3">
                 <div class="card bg-dark sticky-top border-right-0 border-left border-top-0 border-bottom-0  border-success"
                     style="height: 500px;">
-                    <div class="card-header text-light border-white">Pets Around</div>
-                    <div class="pagination">
+                    <div class="card-header text-light border-white text-center">Pets Around</div>
+                    <div class="pagination" style="height:75vh; maxheight:75vh; overflow-y:auto;">
                         <div class="card-body">
                             {{#each alluser}}
                             <div class="container p-2 my-1 d-flex justify-content-between">
@@ -169,10 +167,10 @@
                                 </div>
                                 <div>
                                     {{#inArray this.followers ../user_data.user_id}}
-                                    <button class="ml-5 btn btn-outline-danger btn-sm fll_btn"
+                                    <button class=" btn btn-outline-danger btn-sm fll_btn" 
                                         value="{{this.user_id}}">Unfollow</button>
                                     {{else}}
-                                    <button class="ml-5 btn btn-outline-success btn-sm fll_btn"
+                                    <button class="px-3 btn btn-outline-success btn-sm fll_btn" 
                                         value="{{this.user_id}}">follow</button>
                                     {{/inArray}}
                                 </div>
