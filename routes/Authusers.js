@@ -10,7 +10,7 @@ router.use(function(req,res,next){
     next()
   }
   else{
-    res.redirect('/login')
+    res.redirect('/getin')
   }
 })
 

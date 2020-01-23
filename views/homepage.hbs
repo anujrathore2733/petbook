@@ -55,7 +55,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
-                <div class="card bg-dark text-light sticky-top border-right border-left-0 border-top-0 border-bottom-0  border-success" style="height: 500px;">
+                <div class="card bg-dark text-light sticky-top border-right border-left-0 border-top-0 border-bottom-0  border-success"
+                    style="height: 500px;">
                     <!-- <div class="card-header">Suggestion</div> -->
                     <div class="card-body">
                         <div class="text-center">
@@ -77,8 +78,12 @@
                                 <span class="fa fa-star" id="ratingstar1"></span>
                                 <span class="fa fa-star" id="ratingstar1"></span>
                             </div>
-                            <button type="button" class="btn btn-light btn-sm">followers<span class="badge badge-dark ml-2 rounded-circle" id="follower_count">{{user_data.followers.length}}</span></button>
-                            <button type="button" class="btn btn-light btn-sm">following<span class="badge badge-dark ml-2 rounded-circle" id="followings_count">{{user_data.followings.length}}</span></button>
+                            <button type="button" class="btn btn-light btn-sm">followers<span
+                                    class="badge badge-dark ml-2 rounded-circle"
+                                    id="follower_count">{{user_data.followers.length}}</span></button>
+                            <button type="button" class="btn btn-light btn-sm">following<span
+                                    class="badge badge-dark ml-2 rounded-circle"
+                                    id="followings_count">{{user_data.followings.length}}</span></button>
                         </div>
 
 
@@ -102,7 +107,8 @@
 
                     ​
                 </div>
-                ​<hr class="border-success">
+                ​
+                <hr class="border-success">
                 <div id="display_post">
                     ​{{#each post_data}}
                     <div class="card py-2 mt-2 bg-dark text-light " id="{{this._id}}">
@@ -124,10 +130,15 @@
                             <button type="button" class="btn btn-outline-success btn-sm" disabled> Share </button>
                         </div>
                         <div class="p-2 collapse" id="comments{{this._id}}">
-                            <div class="d-flex">
+                            <p style="display: none;">{{sort this.comments "date"}}</p>
+                            <div class="mb-5">
+                                <div>
+                                    <textarea cols="102" rows="2"></textarea>
+                                    <button class="btn btn-info btn-sm savecmnt float-right">comment</button>
+                                </div>
 
                             </div>
-                            <p style="display: none;">{{sort this.comments "date"}}</p>
+                            
                             {{#each this.comments}}
                             <div class="bg-light text-dark rounded">
                                 <a href="#">{{this.pet_name}}</a>
@@ -143,20 +154,28 @@
             ​
             ​
             <div class="col-md-3">
-                <div class="card bg-dark sticky-top border-right-0 border-left border-top-0 border-bottom-0  border-success" style="height: 500px;">
+                <div class="card bg-dark sticky-top border-right-0 border-left border-top-0 border-bottom-0  border-success"
+                    style="height: 500px;">
                     <div class="card-header text-light border-white">Pets Around</div>
                     <div class="pagination">
                         <div class="card-body">
                             {{#each alluser}}
-                            <div class="container p-2 my-1">
-                                <a href="" class="text-light mr-5"><img class="mr-2" src="{{this.profile_pic}}" width="50"
-                                        height="50" style="border-radius: 50%;" class="d-inline-block align-top"
-                                        alt="">{{this.pet_name}}</a>
-                                {{#inArray this.followers ../user_data.user_id}}
-                                <button class="ml-5 btn btn-outline-danger btn-sm fll_btn" value="{{this.user_id}}">Unfollow</button>
-                                {{else}}
-                                <button class="ml-5 btn btn-outline-success btn-sm fll_btn" value="{{this.user_id}}">follow</button>
-                                {{/inArray}}
+                            <div class="container p-2 my-1 d-flex justify-content-between">
+                                <div>
+                                    <a href="/Authusers/viewprofile?id={{this.user_id}}" class="text-light mr-5"><img
+                                            class="mr-2" src="{{this.profile_pic}}" width="50" height="50"
+                                            style="border-radius: 50%;" class="d-inline-block align-top"
+                                            alt="">{{this.pet_name}}</a>
+                                </div>
+                                <div>
+                                    {{#inArray this.followers ../user_data.user_id}}
+                                    <button class="ml-5 btn btn-outline-danger btn-sm fll_btn"
+                                        value="{{this.user_id}}">Unfollow</button>
+                                    {{else}}
+                                    <button class="ml-5 btn btn-outline-success btn-sm fll_btn"
+                                        value="{{this.user_id}}">follow</button>
+                                    {{/inArray}}
+                                </div>
                             </div>
                             {{/each}}
                         </div>

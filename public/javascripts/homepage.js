@@ -1,15 +1,15 @@
 $(document).ready(function () {
 
     var latest_post = []
-    function display_latest_post(){
+    function display_latest_post() {
 
-        var card = '<div class="card py-2 mt-2" id="'+latest_post._id+'"><div class="card-body"><h4 class="card-title"> <a href="" class="text-dark">'+latest_post.pet_name+'</a></h4><p class="card-text"></p><p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p></div><img src="'+latest_post.post_media+'"class="card-img-top" alt="..."><div class="d-flex justify-content-between mt-1 p-2"><button class="btn btn-primary" > Like </button><button class="btn btn-primary"> Comment </button><button class="btn btn-primary"> Share </button></div></div>'
-        
+        var card = '<div class="card py-2 mt-2" id="' + latest_post._id + '"><div class="card-body"><h4 class="card-title"> <a href="" class="text-dark">' + latest_post.pet_name + '</a></h4><p class="card-text"></p><p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p></div><img src="' + latest_post.post_media + '"class="card-img-top" alt="..."><div class="d-flex justify-content-between mt-1 p-2"><button class="btn btn-primary" > Like </button><button class="btn btn-primary"> Comment </button><button class="btn btn-primary"> Share </button></div></div>'
+
 
         $('#display_post').prepend(card);
 
     }
-    
+
     $('#share_post').on('click', function () {
 
 
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
             data.append('caption', cap)
             data.append('file', fil)
-            data.append('pet_name',petname)
+            data.append('pet_name', petname)
 
             console.log(data)
 
@@ -68,29 +68,33 @@ $(document).ready(function () {
 
     })
 
-    $('body').on('click','.cmnt',function(){
+    $('body').on('click', '.cmnt', function () {
         console.log($(this).parent().next().children().first())
-        $(this).parent().next().children().first().html('<div><textarea cols="65" rows="2"></textarea><button class="btn btn-info btn-sm savecmnt">comment</button></div>')
+        // $(this).parent().next().children().first().html('<div><textarea cols="65" rows="2"></textarea><button class="btn btn-info btn-sm savecmnt">comment</button></div>')
     })
 
-    $('body').on('click','.savecmnt',function(){
+    $('body').on('click', '.savecmnt', function () {
 
-        $(this).prop('disabled',true)
-        
+        $(this).prop('disabled', true)
+
         var comment = $(this).prev()[0].value
-       var post_id = $(this).parent().parent().parent()[0].id.replace('comments','')
+        var post_id = $(this).parent().parent().parent()[0].id.replace('comments', '')
 
         var petname = $('#petname').val()
 
         var data = {
-            post_id:post_id,
-            comment:comment,
-            petname:petname
+            post_id: post_id,
+            comment: comment,
+            petname: petname
         }
 
         // .html('<h6>'+petname+'</h6><br><p>'+comment+'</P>')
-        console.log($(this).parent().append('<div class="bg-light border border-dark rounded"><h5><b>'+petname+'</b></h5><p class="bg-light border border-dark rounded">'+comment+'</p></div>'),'this is sibilings')
+
         console.log(data)
+        $(this).parent().parent().prepend('<div class="bg-light text-dark rounded"><a href="#">'+petname+'</a><p>'+comment+'</p></div>')
+        $('textarea').val('')
+        $(this).prop('disabled', false)
+
 
         $.ajax({
             type: "post",
@@ -98,22 +102,25 @@ $(document).ready(function () {
             data: data,
             dataType: "json",
             success: function (response) {
-                console.log(response)
-                $('textarea').val('')
-                $('.savecmnt').prop('disabled',false)
+                if (response) {
+                    
+                    $(this).prop('disabled', false)
+
+                }
+
             }
         });
 
     })
-    
-    
-    $("body").on("click",'.likebtn',function() {
 
-        var data = {post_id:$(this).val()}
-        
-        if($(this).html()== 'like'){
+
+    $("body").on("click", '.likebtn', function () {
+
+        var data = { post_id: $(this).val() }
+
+        if ($(this).html() == 'like') {
             $(this).html('unlike')
-            $(this).attr('class','btn btn-outline-danger btn-sm likebtn')
+            $(this).attr('class', 'btn btn-outline-danger btn-sm likebtn')
             $.ajax({
                 type: "post",
                 url: "/Authusers/likepost",
@@ -124,9 +131,9 @@ $(document).ready(function () {
                 }
             });
         }
-        else{
+        else {
             $(this).html('like')
-            $(this).attr('class','btn btn-outline-success btn-sm likebtn')
+            $(this).attr('class', 'btn btn-outline-success btn-sm likebtn')
             $.ajax({
                 type: "post",
                 url: "/Authusers/dislikepost",
@@ -134,32 +141,32 @@ $(document).ready(function () {
                 dataType: "json",
                 success: function (response) {
                     console.log('dislike done')
-                    
+
                 }
             });
         }
-      });
+    });
 
 
-      $('body').on('click','.fll_btn',function(){
-          var data ={user_id:$(this).val()}
+    $('body').on('click', '.fll_btn', function () {
+        var data = { user_id: $(this).val() }
 
 
-          if($(this).html()=='follow'){
-              $(this).attr('class','ml-5 btn btn-outline-danger btn-sm fll_btn')
-              $(this).html('unfollow')
-              $.ajax({
-                  type: "post",
-                  url: "/Authusers/follow",
-                  data: data,
-                  dataType: "json",
-                  success: function (response) {
-                      console.log(response)
-                  }
-              });
-          }
-          else{
-            $(this).attr('class','ml-5 btn btn-outline-success btn-sm fll_btn')
+        if ($(this).html() == 'follow') {
+            $(this).attr('class', 'ml-5 btn btn-outline-danger btn-sm fll_btn')
+            $(this).html('unfollow')
+            $.ajax({
+                type: "post",
+                url: "/Authusers/follow",
+                data: data,
+                dataType: "json",
+                success: function (response) {
+                    console.log(response)
+                }
+            });
+        }
+        else {
+            $(this).attr('class', 'ml-5 btn btn-outline-success btn-sm fll_btn')
             $(this).html('follow')
             $.ajax({
                 type: "post",
@@ -170,10 +177,10 @@ $(document).ready(function () {
                     console.log(response)
                 }
             });
-          }
-      })
+        }
+    })
 
-    
+
 
 
 });

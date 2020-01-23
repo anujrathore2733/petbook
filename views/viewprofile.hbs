@@ -12,12 +12,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://use.fontawesome.com/2dd4957359.js"></script>
     <link rel="stylesheet" href="/stylesheets/profilepage.css">
-
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand ml-4" href="#">Petsbook</a>
+<body class="bg-dark ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand ml-4" href="/Authusers/homepage">
+            <img src="https://newsinhealth.nih.gov/sites/nihNIH/files/styles/featured_media_breakpoint-large/public/2018/February/illustration-people-different-types-pets.jpg?itok=Aalkb5Aa"
+                width="30" height="30" style="border-radius: 50%;" class="d-inline-block align-top" alt="">
+            Petbook
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,48 +36,35 @@
             </form>
             <ul class="navbar-nav ml-auto mr-sm-4">
                 <li class="nav-item active">
-                    <a class="nav-link mr-sm-4" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link mr-sm-4" href="/Authusers/homepage">Home <span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link mr-sm-4" href="#">Create<span class="sr-only">(current)</span></a>
+                    <a class="nav-link mr-sm-4" href="/Authusers/profile">Myprofile<span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link mr-sm-4" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        More
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
-                    </div>
+                    <a class="nav-link mr-sm-4" href="/Authusers/logout">LogOut<span
+                            class="sr-only">(current)</span></a>
                 </li>
             </ul>
 
         </div>
     </nav>
-
-    <div class="container">
-
-
+    <div class="container mt-2">
         <div class="row">
             <div class="col-sm-12">
-                <div class="panel panel-white profile-widget">
+                <div class="panel profile-widget">
                     <div class="row">
                         <div class="col-sm-12 lg-12">
                             <div class="image-container bg2">
-                                <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                                    class="avatar" alt="avatar">
+                                <img src="{{user_data.profile_pic}}" class="avatar" alt="avatar">
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="details">
-                                <h4>{{user_data.pet_name}}<i class="fa fa-sheild"></i></h4>
-                                <div class="ml-2">
+                                <h4 class="text-light">{{user_data.pet_name}}<i class="fa fa-sheild"></i></h4>
+                                <div cls="ml-2">
                                     <span class="fa fa-star checked" id="ratingstar1"></span>
                                     <span class="fa fa-star checked" id="ratingstar1"></span>
                                     <span class="fa fa-star checked" id="ratingstar1"></span>
@@ -82,7 +72,15 @@
                                     <span class="fa fa-star" id="ratingstar1"></span>
                                 </div>
                                 <div class="mg-top-10">
-                                    <button class="btn btn-blue btn-sm">Follow Me</button>
+                                    <button class="btn btn-light btn-sm" data-toggle="modal" type="button"
+                                        data-target="#followers">Followers<span
+                                            class="badge ml-2 badge-dark rounded-circle"
+                                            id="followers_count">{{user_data.followers.length}}</span></button>
+                                    <button class="btn btn-light btn-sm" data-toggle="modal" type="button"
+                                        data-target="#followings">Following<span
+                                            class="badge ml-2 badge-dark rounded-circle"
+                                            id="following_count">{{user_data.followings.length}}</span></button>
+
                                 </div>
                             </div>
 
@@ -95,10 +93,11 @@
         </div>
         <div class="row d-flex justify-content-between">
             <div class="col-md-2">
-                <div class="card">
+                <div class="card bg-dark text-light">
                     <h5 class="card-header text-center details1">Species</h5>
                     <div class="card-body text-center">
                         <h6 class="text-center"><b>{{user_data.pet_species.species}}</b></h6>
+                        <p>{{user_data.pet_species.breed}}</p>
                         <hr>
                         <h6 class="text-center"><b>Breed</b></h6>
                         <p>{{user_data.pet_species.breed}}</p>
@@ -108,25 +107,25 @@
                         <hr>
                         <h6 class="text-center"><b>Life Span</b></h6>
                         <p>{{user_data.pet_species.life_span}}</p>
-
-
-
                     </div>
                 </div>
             </div>
+
             <div class="col-md-8">
-                <div class="card">
-                    <h5 class="card-header">Featured</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="card bg-dark" style="padding: 0%;margin:0%">
+                    <div class="card-header text-dark bg-dark" style="padding: 0%;">
+                        <h4 class="text-light">Create Post</h4>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control bg-dark text-light" placeholder="Write Something Here!"
+                            id="post_caption" rows="3"></textarea>
+                        <label for="attachment1" class="btn btn-primary mt-2 bg-dark ml-1">Add Photo/Video</label>
+                        <button type="button" class="btn btn-primary bg-dark" id="share_post">Post</button>
                     </div>
                 </div>
-
             </div>
             <div class="col-md-2">
-                <div class="card">
+                <div class="card bg-dark text-light">
                     <h5 class="card-header text-center details1">Health</h5>
                     <div class="card-body text-center">
                         <h6 class="text-center"><b>Age</b></h6>
@@ -140,18 +139,31 @@
                         <hr>
                         <h6 class="text-center"><b>Skin Condition</b></h6>
                         <p>{{user_data.pet_health.skin}}</p>
-
-
-
-
-
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="followers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="container">
+        <div class="row d-flex justify-content-between my-2">
+            {{#each user_post}}
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body" style="padding: 0%;">
+                        <p class="card-text">{{this.caption}}</p>
+                        <img src="{{this.post_media}}" alt="" height="90%" width="100%" class="rounded">
+                        <div class="text-center">
+                            <span class="badge badge-dark rounded">{{this.likes.length}}Likes</span>
+                            <span class="badge badge-dark rounded">{{this.comments.length}}comments</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+    </div>
+    {{!-- <div class="modal fade" id="followers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
@@ -167,8 +179,8 @@
 
             </div>
         </div>
-    </div>
-    <div class="modal fade" id="followings" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    </div> --}}
+    {{!-- <div class="modal fade" id="followings" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
@@ -184,7 +196,7 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -256,18 +268,18 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Height</label>
-                                        <input type="number" class="form-control" name="height" placeholder="height in cm"
-                                            value="{{user_data.pet_health.height}}">
+                                        <input type="number" class="form-control" name="height"
+                                            placeholder="height in cm" value="{{user_data.pet_health.height}}">
                                     </div>
                                     <div class="form-group">
                                         <label>Weight</label>
-                                        <input type="number" class="form-control" name="weight" placeholder="weight in kg"
-                                            value="{{user_data.pet_health.weight}}">
+                                        <input type="number" class="form-control" name="weight"
+                                            placeholder="weight in kg" value="{{user_data.pet_health.weight}}">
                                     </div>
                                     <div class="form-group">
                                         <label>Skin condition</label>
-                                        <input type="text" class="form-control" name="skin_condition" placeholder="Skin condition"
-                                            value="{{user_data.pet_health.skin}}">
+                                        <input type="text" class="form-control" name="skin_condition"
+                                            placeholder="Skin condition" value="{{user_data.pet_health.skin}}">
                                     </div>
                                     <input type="hidden" name="user_id" value="{{user_data.user_id}}">
                                     <button class="btn btn-primary" type="submit">Save Details</button>

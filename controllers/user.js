@@ -19,10 +19,10 @@ user_controller.signup = function (req,res, next) {
         if(err){
             console.log(err)
             if(err.code == 11000){
-                res.redirect('/signup?dup_email=true')
+                res.redirect('/getin?dup_email=true')
             }
             else{
-                res.redirect('/signup?something_wrong=true')
+                res.redirect('/getin?something_wrong=true')
             }
         }
         else{
@@ -37,7 +37,7 @@ user_controller.signup = function (req,res, next) {
                 }
             })
 
-            res.redirect('/login?signup_success=true')
+            res.redirect('/getin?signup_success=true')
         }
     })
 
@@ -53,7 +53,7 @@ user_controller.login = function(req,res,next){
         else{
             
             if(result== null){
-                res.redirect('/login?user_not_found=true')
+                res.redirect('/getin?user_not_found=true')
             }
             else{
                 if(result.password == req.body.password){
@@ -62,7 +62,7 @@ user_controller.login = function(req,res,next){
                 }
                 else{
 
-                    res.redirect('/login?invalid_password=true')
+                    res.redirect('/getin?invalid_password=true')
                 }
             }
         }

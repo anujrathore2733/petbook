@@ -219,7 +219,16 @@ auth_controller.viewprofile = function(req,res,next){
             console.log(err)
         }
         else{
-            res.render('viewprofile.hbs',{user_data:result})
+            modals.user_post.find({user_id:user_id},function(err,post){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    res.render('viewprofile.hbs',{user_data:result,user_post:post})
+
+                }
+            })
+            
         }
     })
     

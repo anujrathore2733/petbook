@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Register </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/2dd4957359.js"></script>
+    <link rel="stylesheet" href="/stylesheets/profilepage.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Mukta');
+
+        body {
+            font-family: 'Mukta', sans-serif;
+            height: 100vh;
+            min-height: 550px;
+            background-image: url(http://www.planwallpaper.com/static/images/Free-Wallpaper-Nature-Scenes.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow-y: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: #444444;
+        }
+
+        .login-reg-panel {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            width: 70%;
+            right: 0;
+            left: 0;
+            margin: auto;
+            height: 400px;
+            background-color: rgba(12, 10, 10, 0.9);
+        }
+
+        .white-panel {
+            background-color: rgba(255, 255, 255, 1);
+            height: 500px;
+            position: absolute;
+            top: -50px;
+            width: 50%;
+            right: calc(50% - 50px);
+            transition: .3s ease-in-out;
+            z-index: 0;
+            box-shadow: 0 0 15px 9px #00000096;
+        }
+
+        .login-reg-panel input[type="radio"] {
+            position: relative;
+            display: none;
+        }
+
+        .login-reg-panel {
+            color: #B8B8B8;
+        }
+
+        .login-reg-panel #label-login,
+        .login-reg-panel #label-register {
+            border: 1px solid #9E9E9E;
+            padding: 5px 5px;
+            width: 150px;
+            display: block;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .login-info-box {
+            width: 30%;
+            padding: 0 50px;
+            top: 20%;
+            left: 0;
+            position: absolute;
+            text-align: left;
+        }
+
+        .register-info-box {
+            width: 30%;
+            padding: 0 50px;
+            top: 20%;
+            right: 0;
+            position: absolute;
+            text-align: left;
+
+        }
+
+        .right-log {
+            right: 50px !important;
+        }
+
+        .login-show,
+        .register-show {
+            z-index: 1;
+            display: none;
+            opacity: 0;
+            transition: 0.3s ease-in-out;
+            color: #242424;
+            text-align: left;
+            padding: 50px;
+        }
+
+        .show-log-panel {
+            display: block;
+            opacity: 0.9;
+        }
+
+        .login-show input[type="text"],
+        .login-show input[type="password"] {
+            width: 100%;
+            display: block;
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #b5b5b5;
+            outline: none;
+        }
+
+        .login-show input[type="button"] {
+            max-width: 150px;
+            width: 100%;
+            background: #444444;
+            color: #f9f9f9;
+            border: none;
+            padding: 10px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            float: right;
+            cursor: pointer;
+        }
+
+        .login-show a {
+            display: inline-block;
+            padding: 10px 0;
+        }
+
+        .register-show input[type="text"],
+        .register-show input[type="password"] {
+            width: 100%;
+            display: block;
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #b5b5b5;
+            outline: none;
+        }
+
+        .register-show input[type="button"] {
+            max-width: 150px;
+            width: 100%;
+            background: #444444;
+            color: #f9f9f9;
+            border: none;
+            padding: 10px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            float: right;
+            cursor: pointer;
+        }
+
+        .credit {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: #3B3B25;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            z-index: 99;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2c7715;
+        }
+    </style>
+
+</head>
+
+<body class="bg-dark">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"> Petbook
+
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="login-reg-panel">
+        <div class="login-info-box">
+            <h2>Have an account?</h2>
+            <label id="label-register" for="log-reg-show">Login</label>
+            <input type="radio" name="active-log-panel" id="log-reg-show" checked="checked">
+        </div>
+
+        <div class="register-info-box">
+            <h2>Don't have an account?</h2>
+            <label id="label-login" for="log-login-show">Register</label>
+            <input type="radio" name="active-log-panel" id="log-login-show">
+        </div>
+
+        <div class="white-panel">
+            <div class="login-show">
+                {{#if signup_success}}
+                <div class="alert alert-secondary alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Congrats!</strong>you can login now.
+                </div>
+                {{/if}}
+                {{#if invalid_password}}
+                <div class="alert alert-secondary alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Invalid</strong> password.
+                </div>
+                {{/if}}
+                {{#if user_not_found}}
+                <div class="alert alert-secondary alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Oops!</strong> user not fount try signup.
+                </div>
+                {{/if}}
+                {{#if dup_email}}
+                <div class="alert alert-secondary alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>oops!</strong> email already exist try login.
+                </div>
+                {{/if}}
+                <h2>LOGIN</h2>
+                <form action="/login" method="POST">
+                    <input type="text" name="email" placeholder="Email" id="inputEmail">
+                    <input type="password" name="password" placeholder="Password" id="inputPassword">
+                    <button class="float-right btn btn-outline-dark bg-dark text-light px-5"
+                        type="submit">LOGIN</button>
+                </form>
+                
+            </div>
+            <div class="register-show">
+                <h2>REGISTER</h2>
+                <form action="/signup" method="POST" id="signup_form">
+                    <input type="text" placeholder="Your Pet's name" name="pet_name" id="inputUserame">
+                    <input type="text" placeholder="Email" name="email" id="inputEmailsignup">
+                    <input type="password" placeholder="Password" name="password" id="inputPasswordsignup">
+                    <input type="password" placeholder="Confirm Password" id="inputConfirmPassword">
+                    <button class="float-right btn btn-outline-dark bg-dark text-light px-2" type="button"
+                        id="register">REGISTER</button>
+                    <span class="badge badge-secondary" id="error_petname"></span>
+                    <span class="badge badge-secondary" id="error_email"></span>
+                    <span class="badge badge-secondary" id="error_pass"></span>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="/javascripts/getin.js"></script>
+</body>
+
+
+
+</html>
