@@ -59,7 +59,15 @@ auth_controller.load_profilepage = function(req,res,next){
         }
         else{
             console.log(result)
-            res.render('profile.hbs',{user_data:result})
+            modals.user_post.find({user_id:req.session.user},function(err,post){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    res.render('profile.hbs',{user_data:result,user_post:post})
+                }
+            })
+            
         }
     })
 
@@ -168,8 +176,22 @@ auth_controller.load_homepage = function(req,res,next){
             console.log(err)
         }
         else{
-            modals.user_post.find({},function(err,result){
-                res.render('homepage.hbs',{user_data:user_data,post_data:result.reverse()})
+            modals.user_post.find({},function(err,post_data){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    modals.user_profile.find({user_id:{$ne:req.session.user}},function(err,allprofiles){
+                        if(err){
+                            console.log(err)
+                        }
+                        else{
+                            console.log(allprofiles)
+                            res.render('homepage.hbs',{user_data:user_data,post_data:post_data.reverse(),alluser:allprofiles})
+                        }
+                    })
+                }
+                
 
             })
 
@@ -222,7 +244,8 @@ auth_controller.likepost = function(req,res,next){
             console.log(err)
         }
         else{
-            console.log(result)
+            console.log('like done')
+            res.send('like done')
         }
     })
 }
@@ -235,7 +258,51 @@ auth_controller.dislikepost = function(req,res,next){
             console.log(err)
         }
         else{
-            console.log(result)
+            console.log('unlike done')
+            res.send('unlike done')
+        }
+    })
+}
+
+auth_controller.follow = function(req,res,next){
+    console.log(req.body,'this is follow')
+    modals.user_profile.updateOne({user_id:req.body.user_id},{$push:{followers:req.session.user}},function(err,result){
+        if(err){
+            console.log(err)
+        }
+        else{
+            modals.user_profile.updateOne({user_id:req.session.user},{$push:{followings:req.body.user_id}},function(err,result){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    console.log(result)
+                    res.send('follow success')
+                }
+            })
+
+            
+        }
+    })
+}
+
+auth_controller.unfollow = function(req,res,next){
+    console.log(req.body,'this is unfollow')
+    modals.user_profile.updateOne({user_id:req.body.user_id},{$pull:{followers:req.session.user}},function(err,result){
+        if(err){
+            console.log(err)
+        }
+        else{
+            modals.user_profile.updateOne({user_id:req.session.user},{$pull:{followings:req.body.user_id}},function(err,result){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    console.log(result)
+                    res.send('unfollow success')
+                }
+            })
+            
         }
     })
 }

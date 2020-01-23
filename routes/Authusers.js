@@ -21,6 +21,15 @@ router.get('/gettingpost',controller.get_posts)
 
 router.get('/viewprofile',controller.viewprofile)
 
+router.get('/logout',function(req,res,next){
+  req.session.destroy()
+  res.redirect('/')
+})
+
+router.post('/follow',controller.follow)
+
+router.post('/unfollow',controller.unfollow)
+
 router.post('/likepost',controller.likepost)
 
 router.post('/dislikepost',controller.dislikepost)

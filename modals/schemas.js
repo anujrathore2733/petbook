@@ -17,8 +17,8 @@ var user_profileSchema = new mongoose.Schema({
     },
     profile_pic: String,
     profile_cover_pic: String,
-    followers: [{ user: String, date: Date }],
-    followings: [{ user: String, date: Date }],
+    followers: [String],
+    followings: [String],
     popularity_meter: Number,
     pet_name: String,
     pet_species: {

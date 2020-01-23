@@ -113,6 +113,7 @@ $(document).ready(function () {
         
         if($(this).html()== 'like'){
             $(this).html('unlike')
+            $(this).attr('class','btn btn-outline-danger btn-sm likebtn')
             $.ajax({
                 type: "post",
                 url: "/Authusers/likepost",
@@ -125,6 +126,7 @@ $(document).ready(function () {
         }
         else{
             $(this).html('like')
+            $(this).attr('class','btn btn-outline-success btn-sm likebtn')
             $.ajax({
                 type: "post",
                 url: "/Authusers/dislikepost",
@@ -137,6 +139,39 @@ $(document).ready(function () {
             });
         }
       });
+
+
+      $('body').on('click','.fll_btn',function(){
+          var data ={user_id:$(this).val()}
+
+
+          if($(this).html()=='follow'){
+              $(this).attr('class','ml-5 btn btn-outline-danger btn-sm fll_btn')
+              $(this).html('unfollow')
+              $.ajax({
+                  type: "post",
+                  url: "/Authusers/follow",
+                  data: data,
+                  dataType: "json",
+                  success: function (response) {
+                      console.log(response)
+                  }
+              });
+          }
+          else{
+            $(this).attr('class','ml-5 btn btn-outline-success btn-sm fll_btn')
+            $(this).html('follow')
+            $.ajax({
+                type: "post",
+                url: "/Authusers/unfollow",
+                data: data,
+                dataType: "json",
+                success: function (response) {
+                    console.log(response)
+                }
+            });
+          }
+      })
 
     
 
