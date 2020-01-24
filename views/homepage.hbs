@@ -114,7 +114,7 @@
                             <h4 class="card-title"> <a href="/Authusers/viewprofile?id={{this.user_id}}"
                                     class="text-light"> {{this.pet_name}}</a></h4>
                             <p class="card-text">{{this.caption}}</p>
-                            
+
                         </div>
                         <img src="{{this.post_media}}" class="card-img-top" alt="...">
                         <div class="d-flex justify-content-between mt-1 p-2">
@@ -136,7 +136,7 @@
                                 </div>
 
                             </div>
-                            
+
                             {{#each this.comments}}
                             <div class="bg-light text-dark rounded">
                                 <a href="#">{{this.pet_name}}</a>
@@ -147,6 +147,45 @@
 
                     </div>
                     ​{{/each}}
+                    {{#each mypost}}
+                    <div class="card py-2 mt-2 bg-dark text-light" id="{{this._id}}">
+                        <div class="card-body">
+                            <h4 class="card-title"> <a href="/Authusers/viewprofile?id={{this.user_id}}"
+                                    class="text-light"> {{this.pet_name}}</a></h4>
+                            <p class="card-text">{{this.caption}}</p>
+
+                        </div>
+                        <img src="{{this.post_media}}" class="card-img-top" alt="...">
+                        <div class="d-flex justify-content-between mt-1 p-2">
+                            {{#inArray this.likes ../user_data.user_id}}
+                            <button class="btn btn-outline-danger btn-sm likebtn" value="{{this._id}}">unlike</button>
+                            {{else}}
+                            <button class="btn btn-outline-success btn-sm likebtn" value="{{this._id}}">like</button>
+                            {{/inArray}}
+                            <button type="button" class="btn btn-outline-success btn-sm cmnt" data-toggle="collapse"
+                                data-target="#comments{{this._id}}">Comment</button>
+                            <button type="button" class="btn btn-outline-success btn-sm" disabled> Share </button>
+                        </div>
+                        <div class="p-2 collapse" id="comments{{this._id}}">
+                            <p style="display: none;">{{sort this.comments "date"}}</p>
+                            <div class="mb-5">
+                                <div>
+                                    <textarea class="form-control" cols="80" rows="2"></textarea>
+                                    <button class="mt-2 btn btn-info btn-sm savecmnt float-right">comment</button>
+                                </div>
+
+                            </div>
+
+                            {{#each this.comments}}
+                            <div class="bg-light text-dark rounded">
+                                <a href="#">{{this.pet_name}}</a>
+                                <p>{{this.comment}}</p>
+                            </div>
+                            {{/each}}
+                        </div>
+
+                    </div>
+                    {{/each}}
                 </div>
             </div>
             ​
@@ -167,10 +206,10 @@
                                 </div>
                                 <div>
                                     {{#inArray this.followers ../user_data.user_id}}
-                                    <button class=" btn btn-outline-danger btn-sm fll_btn" 
+                                    <button class=" btn btn-outline-danger btn-sm fll_btn"
                                         value="{{this.user_id}}">Unfollow</button>
                                     {{else}}
-                                    <button class="px-3 btn btn-outline-success btn-sm fll_btn" 
+                                    <button class="px-3 btn btn-outline-success btn-sm fll_btn"
                                         value="{{this.user_id}}">follow</button>
                                     {{/inArray}}
                                 </div>

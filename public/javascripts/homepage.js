@@ -155,28 +155,36 @@ $(document).ready(function () {
         if ($(this).html() == 'follow') {
             $(this).attr('class', 'btn btn-outline-danger btn-sm fll_btn')
             $(this).html('unfollow')
+            
             $.ajax({
                 type: "post",
+                async:false,
                 url: "/Authusers/follow",
                 data: data,
                 dataType: "json",
                 success: function (response) {
                     console.log(response)
+                    
                 }
             });
+            window.location.reload()
         }
         else {
             $(this).attr('class', 'px-3 btn btn-outline-success btn-sm fll_btn')
             $(this).html('follow')
+            
             $.ajax({
                 type: "post",
+                async:false,
                 url: "/Authusers/unfollow",
                 data: data,
                 dataType: "json",
                 success: function (response) {
                     console.log(response)
+                    
                 }
             });
+            window.location.reload()
         }
     })
 

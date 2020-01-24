@@ -176,7 +176,7 @@ auth_controller.load_homepage = function(req,res,next){
             console.log(err)
         }
         else{
-            modals.user_post.find({user_id:{$in:user_data.followings},user_id:user_id},function(err,post_data){
+            modals.user_post.find({user_id:{$in:user_data.followings}},function(err,post_data){
                 if(err){
                     console.log(err)
                 }
@@ -187,7 +187,17 @@ auth_controller.load_homepage = function(req,res,next){
                         }
                         else{
                             console.log(allprofiles)
-                            res.render('homepage.hbs',{user_data:user_data,post_data:post_data.reverse(),alluser:allprofiles})
+                            modals.user_post.find({user_id:user_data.user_id},function(err,mypost){
+                                if(err){
+                                    console.log(err)
+                                }
+                                else{
+                                    console.log(mypost,'thi is my post')
+                                    res.render('homepage.hbs',{user_data:user_data,post_data:post_data.reverse(),alluser:allprofiles,mypost:mypost})
+
+                                }
+                            })
+                            
                         }
                     })
                 }
