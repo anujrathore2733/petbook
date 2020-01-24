@@ -109,12 +109,12 @@
                 <hr class="border-success">
                 <div id="display_post">
                     ​{{#each post_data}}
-                    <div class="card py-2 mt-2 bg-dark text-light " id="{{this._id}}">
+                    <div class="card py-2 mt-2 bg-dark text-light" id="{{this._id}}">
                         <div class="card-body">
                             <h4 class="card-title"> <a href="/Authusers/viewprofile?id={{this.user_id}}"
                                     class="text-light"> {{this.pet_name}}</a></h4>
                             <p class="card-text">{{this.caption}}</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            
                         </div>
                         <img src="{{this.post_media}}" class="card-img-top" alt="...">
                         <div class="d-flex justify-content-between mt-1 p-2">

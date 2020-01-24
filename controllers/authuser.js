@@ -176,7 +176,7 @@ auth_controller.load_homepage = function(req,res,next){
             console.log(err)
         }
         else{
-            modals.user_post.find({user_id:{$in:user_data.followings}},function(err,post_data){
+            modals.user_post.find({user_id:{$in:user_data.followings},user_id:user_id},function(err,post_data){
                 if(err){
                     console.log(err)
                 }

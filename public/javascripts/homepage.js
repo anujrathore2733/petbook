@@ -3,7 +3,7 @@ $(document).ready(function () {
     var latest_post = []
     function display_latest_post() {
 
-        var card = '<div class="card py-2 mt-2" id="' + latest_post._id + '"><div class="card-body"><h4 class="card-title"> <a href="" class="text-dark">' + latest_post.pet_name + '</a></h4><p class="card-text"></p><p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p></div><img src="' + latest_post.post_media + '"class="card-img-top" alt="..."><div class="d-flex justify-content-between mt-1 p-2"><button class="btn btn-primary" > Like </button><button class="btn btn-primary"> Comment </button><button class="btn btn-primary"> Share </button></div></div>'
+        var card = '<div class="card py-2 mt-2 bg-dark text-light" id="' + latest_post._id + '"><div class="card-body"><h4 class="card-title"> <a href="/Authusers/viewprofile?id='+latest_post.user_id+'" class="text-light">' + latest_post.pet_name + '</a></h4><p class="card-text">'+latest_post.caption+'</p></div><img src="' + latest_post.post_media + '"class="card-img-top" alt="..."><div class="d-flex justify-content-between mt-1 p-2"><button class="btn btn-outline-success btn-sm likebtn" >like</button><button type="button" class="btn btn-outline-success btn-sm cmnt" data-toggle="collapse" data-target="#comments'+latest_post._id+'">Comment</button><button type="button" class="btn btn-outline-success btn-sm" disabled>Share</button></div><div class="p-2 collapse" id="comments'+latest_post._id+'"><div class="mb-5"><div><textarea class="form-control" cols="80" rows="2"></textarea><button class="mt-2 btn btn-info btn-sm savecmnt float-right">comment</button></div></div></div></div>'
 
 
         $('#display_post').prepend(card);
